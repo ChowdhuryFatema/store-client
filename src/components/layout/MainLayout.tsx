@@ -1,4 +1,5 @@
 import { Layout, Menu, MenuProps } from 'antd';
+import { Outlet } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -48,7 +49,7 @@ const MainLayout = () => {
                     console.log(collapsed, type);
                 }}
             >
-                <div style={{ color: "white", textAlign: 'center', padding: '20px 0px'}}>
+                <div style={{ color: "white", textAlign: 'center', padding: '20px 0px' }}>
                     <h1>PH Uni</h1>
                 </div>
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
@@ -62,7 +63,7 @@ const MainLayout = () => {
                             minHeight: 360
                         }}
                     >
-                        <h1>The main content should go here</h1>
+                        <Outlet />
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
