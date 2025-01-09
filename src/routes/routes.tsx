@@ -3,42 +3,33 @@ import App from "../App";
 import About from "../pages/About";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreateStudent from "../pages/admin/CreateStudent";
+import { adminRoutes } from "./admin.routes";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
         children: [
-            {
-                path: 'about',
-                element: <About />,
-            }
+            { path: 'about', element: <About /> }
         ]
     },
     {
         path: '/admin',
         element: <App />,
-        children: [
-            {
-                path: 'dashboard',
-                element: <AdminDashboard />,
-            },
-            {
-                path: 'create-student',
-                element: <CreateStudent />,
-            },
-        ]
+        children: adminRoutes,
     },
     {
-        path: 'login',
-        element: <Login />,
+        path: '/faculty',
+        element: <App />,
+        children: adminRoutes,
     },
     {
-        path: 'register',
-        element: <Register />,
+        path: '/student',
+        element: <App />,
+        children: adminRoutes,
     },
+    { path: 'login', element: <Login /> },
+    { path: 'register', element: <Register /> },
 ])
 
 export default router;
