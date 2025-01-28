@@ -23,8 +23,8 @@ const Login = () => {
     // });
 
     const defaultValues = {
-        id: 'A-0001',
-        password: 'admin123'
+        email: 'admin@example.com',
+        password: 'adminsecurepassword'
     }
 
     const [login, { error }] = useLoginMutation();
@@ -39,7 +39,7 @@ const Login = () => {
 
         try {
             const userInfo = {
-                id: data.id,
+                email: data.email,
                 password: data.password,
             }
 
@@ -49,7 +49,11 @@ const Login = () => {
 
             dispatch(setUser({ user: user, token: res.data.accessToken }));
             toast.success('Logged in', { id: toastId, duration: 2000 })
-            navigate(`/${user.role}/dashboard`)
+            if (user.role === 'admin') {
+                navigate(`/${user.role}/dashboard`)
+            } else {
+                navigate(`/store/home`)
+            }
 
         } catch (error) {
             toast.error('Something went wrong', { id: toastId })
@@ -60,7 +64,7 @@ const Login = () => {
     return (
         <Row justify="center" align="middle" style={{ height: '100vh' }}>
             <PHForm onSubmit={onSubmit} defaultValues={defaultValues}>
-                <PHInput type='text' name='id' label="Id" />
+                <PHInput type='text' name='email' label="Email" />
                 <PHInput type='text' name='password' label="Password" />
                 <Button htmlType="submit">Login</Button>
             </PHForm>
