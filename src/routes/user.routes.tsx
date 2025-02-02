@@ -1,5 +1,6 @@
 import Home from "../pages/home/Home";
-import AllProduct from "../pages/product/AllProduct";
+import AllProduct from "../pages/products/AllProduct";
+import ProductDetails from "../pages/products/ProductDetails";
 
 export const userPaths = [
     {
@@ -12,5 +13,10 @@ export const userPaths = [
         path: "all-product",
         element: <AllProduct />,
     },
+    {
+        path: "all-product/:productId",
+        element: <ProductDetails />,
+    },
+    
 ]
 

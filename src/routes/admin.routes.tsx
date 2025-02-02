@@ -1,24 +1,35 @@
-
-import ProtectedRoute from "../components/layout/ProtectedRoute";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import Home from "../pages/home/Home";
-import AllProduct from "../pages/product/AllProduct";
+import AllProduct from "../pages/products/AllProduct";
+import CreateProduct from "../pages/products/CreateProduct";
+import ProductDetails from "../pages/products/ProductDetails";
+import AdminProtectedRoute from "./AdminProtectedRoute";
 
 export const adminPaths = [
-    // {
-    //     name: "Home",
-    //     path: "home",
-    //     element: <Home />,
-    // },
-    // {
-    //     name: "All Product",
-    //     path: "all-product",
-    //     element: <AllProduct />,
-    // },
+    {
+        name: "Home",
+        path: "home",
+        element: <Home />,
+    },
+    {
+        name: "All Product",
+        path: "all-product",
+        element: <AllProduct />,
+    },
+    {
+        path: "all-product/:productId",
+        element: <ProductDetails />,
+    },
     {
         name: "Dashboard",
         path: "dashboard",
-        element: <ProtectedRoute><AdminDashboard /></ProtectedRoute>,
+        element: <AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>,
+            
+    },
+    {
+        name: "Create Product",
+        path: "create-product",
+        element: <AdminProtectedRoute><CreateProduct /></AdminProtectedRoute>,
     },
     {
         name: "Academic Management",

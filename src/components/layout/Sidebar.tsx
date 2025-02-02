@@ -22,11 +22,11 @@ const Sidebar = () => {
         case userRole.ADMIN:
             sidebarItems = sidebarItemsGenerator(adminPaths, 'admin')
             break
-        // case userRole.USER:
-        //     sidebarItems = sidebarItemsGenerator(userPaths, 'store')
-        //     break
-        default:
+        case userRole.USER:
             sidebarItems = sidebarItemsGenerator(userPaths, 'store')
+            break
+        default:
+            break
     }
 
     return (

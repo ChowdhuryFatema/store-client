@@ -8,11 +8,11 @@ export type TRoute = {
 }
 
 export type TUserPaths = {
-    name: string;
+    name?: string;
     path?: string;
     element?: ReactNode;
     children?: TUserPaths[];
-}
+};
 
 export type TSidebarItem = {
     key: string;

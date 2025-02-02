@@ -1,11 +1,8 @@
 import { Button, Row } from "antd";
 import { FieldValues } from "react-hook-form";
-import { useLoginMutation, useRegisterMutation } from "../redux/features/auth/authApi";
-import { useAppDispatch } from "../redux/hook";
-import { setUser, TUser } from "../redux/features/auth/authSlice";
+import { useRegisterMutation } from "../redux/features/auth/authApi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { verifyToken } from "../utils/verifyToken";
 import PHForm from "../components/form/PHForm";
 import PHInput from "../components/form/PHInput";
 
@@ -13,14 +10,6 @@ import PHInput from "../components/form/PHInput";
 const Register = () => {
 
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
-
-    // const { register, handleSubmit } = ({
-    //     defaultValues: {
-    //         id: 'A-0001',
-    //         password: 'admin123'
-    //     }
-    // });
 
     const defaultValues = {
         "name": "Admin User",
