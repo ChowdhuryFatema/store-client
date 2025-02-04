@@ -34,3 +34,12 @@ export type TQueryParam = {
     name: string;
     value: boolean | React.Key;
 }
+
+export type TCartItem = {
+    product: string; 
+    name: string;
+    price: number;
+    quantity: number;
+    stock: number;
+    image: string;
+}

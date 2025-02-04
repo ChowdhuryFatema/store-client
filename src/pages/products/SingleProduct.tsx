@@ -22,6 +22,8 @@ const SingleProduct = ({ product }: TProductProps) => {
 
     console.log("product", product)
 
+   
+
     return (
         <div className="bg-white rounded-2xl shadow" style={{padding: '24px'}}>
             <h1 className="text-2xl text-red-500">{product.name}</h1>
@@ -38,6 +40,7 @@ const SingleProduct = ({ product }: TProductProps) => {
                 <Link to={`/store/all-product/${product._id}`}>
                     <button>View Details</button>
                 </Link>
+                
             </div>
         </div>
     );
