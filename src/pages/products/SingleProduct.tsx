@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { TProduct } from "../../types/product.type";
+import BtnPrimary from "../../components/ui/button/BtnPrimary";
 
 type TProductProps = {
     product: TProduct;
@@ -29,7 +30,7 @@ const SingleProduct = ({ product }: TProductProps) => {
             <h1 className="text-2xl text-red-500">{product.name}</h1>
             <div>
                 {/* <img src="" alt="" /> */}
-                <img src={product?.image} alt="" />
+                <img className="h-[200px] p-5" src={product?.image} alt="" />
                 <p>Brand: {product.brand}</p>
                 <p>Price: ${product.price}</p>
                 <p>Model: {product.model}</p>
@@ -37,10 +38,11 @@ const SingleProduct = ({ product }: TProductProps) => {
                 <p>Category: {product.category}</p>
                 <p>In Stock: {product.inStock === true ? 'Yes' : 'No' }</p>
 
-                <Link to={`/store/all-product/${product._id}`}>
+                <Link to={`/all-product/${product._id}`}>
+                {/* <BtnPrimary btnText="">View Details</BtnPrimary> */}
                     <button>View Details</button>
                 </Link>
-                
+                <BtnPrimary btnText="View Details" />
             </div>
         </div>
     );

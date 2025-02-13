@@ -2,6 +2,9 @@
 import { Button, Drawer } from 'antd';
 import { useAppDispatch, useAppSelector } from '../redux/hook';
 import { removeFromCart, updateQuantity } from '../redux/features/cart/cartSlice';
+import { useCreateOrderMutation } from '../redux/features/order/order.api';
+import { useEffect } from 'react';
+import { toast } from 'sonner';
 
 type TCartProps = {
     onClose: () => void;
@@ -13,9 +16,25 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
     const dispatch = useAppDispatch();
     const cartData = useAppSelector((state) => state.cart);
 
-    const handlePlaceOrder = () => {
-        console.log(cartData.items);
+    const [createOrder, { isLoading, isSuccess, data, isError, error }] = useCreateOrderMutation();
+
+    const handlePlaceOrder = async () => {
+
+        await createOrder({ products: cartData.items })
     };
+
+    const toastId = "cart";
+
+    useEffect(() => {
+        if (isLoading) toast.loading("Processing...", { id: toastId });
+        if (isSuccess) {
+            toast.success("Order placed successfully", { id: toastId })
+            if(data?.data){
+                window.location.href = data?.data;
+            }
+        }
+        if (isError) toast.error(JSON.stringify(error), { id: toastId })
+    }, [data?.data, data?.message, error, isError, isLoading, isSuccess])
 
     return (
         <>
@@ -79,7 +98,22 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
                     <p className="text-center text-gray-500">Your cart is empty.</p>
                 )}
 
+                <div className="border-b my-3"></div>
 
+                <div className="flex justify-between items-center mb-4">
+                    <span className="text-sm font-medium text-gray-700">
+                        Total Quantity:
+                    </span>
+                    <span className="text-lg font-bold">{cartData.totalQuantity}</span>
+                </div>
+                <div className="flex justify-between items-center mb-4">
+                    <span className="text-sm font-medium text-gray-700">
+                        Total Price:
+                    </span>
+                    <span className="text-lg font-bold">
+                        ${cartData.totalPrice.toFixed(2)}
+                    </span>
+                </div>
 
                 <Button className="w-full" onClick={handlePlaceOrder}>
                     Place Order

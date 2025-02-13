@@ -1,15 +1,15 @@
 import { baseApi } from '../../api/baseApi';
-  
-  const academicManagementApi = baseApi.injectEndpoints({
-    endpoints: (builder) => ({
-      getAllOrders: builder.query({
-        query: () => {
-          return {
-            url: '/orders',
-            method: 'GET',
-          };
-        },
-      }),
+
+const orderApi = baseApi.injectEndpoints({
+  endpoints: (builder) => ({
+    getAllOrders: builder.query({
+      query: () => {
+        return {
+          url: '/orders',
+          method: 'GET',
+        };
+      },
+    }),
     //   getSingleProduct: builder.query({
     //     query: (productId = "") => {
     //       console.log('from redux', productId)
@@ -19,20 +19,29 @@ import { baseApi } from '../../api/baseApi';
     //       };
     //     },
     //   }),
-      
-    createOrder: builder.mutation({
-        query: (data) => ({
-          url: '/orders/create-order',
-          method: 'POST',
-          body: data,
-        }),
-      }),
 
+    createOrder: builder.mutation({
+      query: (data) => ({
+        url: '/orders/create-order',
+        method: 'POST',
+        body: data,
+      }),
     }),
-  });
-  
-  export const {
-    useGetAllOrdersQuery,
-    // useGetSingleProductQuery,
-    useCreateOrderMutation,
-  } = academicManagementApi;
+
+    verifyOrder: builder.query({
+      query: (order_id) => ({
+        url: "/orders/verifyPayment",
+        method: "GET",
+        params: {order_id}
+      })
+    })
+
+  }),
+});
+
+export const {
+  useGetAllOrdersQuery,
+  // useGetSingleProductQuery,
+  useCreateOrderMutation,
+  useVerifyOrderQuery,
+} = orderApi;

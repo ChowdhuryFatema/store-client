@@ -1,31 +1,15 @@
-import AdminDashboard from "../pages/admin/AdminDashboard";
-import Home from "../pages/home/Home";
-import AllProduct from "../pages/products/AllProduct";
+
+// import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreateProduct from "../pages/products/CreateProduct";
-import ProductDetails from "../pages/products/ProductDetails";
 import AdminProtectedRoute from "./AdminProtectedRoute";
 
 export const adminPaths = [
-    {
-        name: "Home",
-        path: "home",
-        element: <Home />,
-    },
-    {
-        name: "All Product",
-        path: "all-product",
-        element: <AllProduct />,
-    },
-    {
-        path: "all-product/:productId",
-        element: <ProductDetails />,
-    },
-    {
-        name: "Dashboard",
-        path: "dashboard",
-        element: <AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>,
+    // {
+    //     name: "Dashboard",
+    //     path: "dashboard",
+    //     element: <AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>,
             
-    },
+    // },
     {
         name: "Create Product",
         path: "create-product",

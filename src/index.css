@@ -5,3 +5,21 @@
   margin: 0;
   padding: 0;
 }
+
+.ant-menu-item-selected {
+  background-color: #653967 !important;
+  color: #ffffff !important;
+}
+
+/* .ant-menu-item {
+  padding: 4px 16px !important;
+  color: #ffffff !important;
+} */
+
+
+/* .ant-layout-sider-zero-width-trigger  */
+.ant-layout-sider-zero-width-trigger-left {
+  /* background-color: #3F0B40 !important;
+  color: #ffffff !important; */
+  z-index: 50 !important;
+}

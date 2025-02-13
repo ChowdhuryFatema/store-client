@@ -1,11 +1,12 @@
 import { Button, Layout } from 'antd';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../redux/features/auth/authSlice';
-import { PiShoppingCartSimpleLight } from "react-icons/pi";
-import CartDrawer from '../cartDrawer';
+import { logout, selectCurrentUser } from '../../redux/features/auth/authSlice';
+
 import { useState } from 'react';
+import { useAppSelector } from '../../redux/hook';
+import Navbar from '../Navbar';
 
 const { Header, Content } = Layout;
 
@@ -13,6 +14,7 @@ const MainLayout = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const user = useAppSelector(selectCurrentUser);
 
     const handleLogout = () => {
         dispatch(logout())
@@ -29,24 +31,57 @@ const MainLayout = () => {
         setOpen(false);
     };
 
+    const navLinks = [
+        {
+            path: "/",
+            label: "Home",
+        },
+        {
+            path: "/all-product",
+            label: "Products",
+        },
+
+    ]
+
     return (
-        <Layout style={{ height: '100vh' }}>
-            <Sidebar />
+        <Layout style={{ position: 'relative' }}>
+            {/* {user?.role === "admin" && <Sidebar />}
+
+            <div className='md:hidden flex'>
+                <Sidebar />
+            </div> */}
+
             <Layout>
-                <Header>
-                    <div className='flex items-center'>
-                        <Button onClick={handleLogout}>Logout</Button>
-                        <PiShoppingCartSimpleLight  onClick={showDrawer} className='text-white text-3xl' />
-                        <CartDrawer onClose={onClose} open={open} />
+                {/* <Header style={{ backgroundColor: '#3F0B40' }}>
+                    <div className='flex items-center justify-between'>
+                        <h2 className='text-white'>GearNova</h2>
+
+                        <div className='flex items-center justify-between'>
+                            {
+                                navLinks.map((nav) => (
+                                    <Link className="!text-white !px-5" key={nav.label} to={nav.path}>
+                                        {nav.label}
+                                    </Link>
+                                ))
+                            }
+
+                            <PiShoppingCartSimpleLight onClick={showDrawer} className='text-white text-3xl' />
+                            <CartDrawer onClose={onClose} open={open} />
+                            <Button onClick={handleLogout}>Logout</Button>
+                        </div>
                     </div>
-                </Header>
-                <Content style={{ margin: '24px 16px 0' }}>
+                </Header> */}
+
+                <Navbar />
+                <Content style={{marginBottom: '24px',}}>
                     <div
                         style={{
-                            padding: 24,
-                            minHeight: 360
+                            // marginBottom: '24px',
+                            minHeight: "100vh"
                         }}
                     >
+                        {/* <div className='h-10 w-full'>
+                        </div> */}
                         <Outlet />
                     </div>
                 </Content>

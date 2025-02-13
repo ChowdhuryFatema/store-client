@@ -31,7 +31,7 @@ const AllProduct = () => {
                 { name: "model", value: filters.model },
                 { name: "brand", value: filters.brand },
                 { name: "category", value: filters.category },
-                { name: "inStock", value: filters.inStock ? "true" : ""  },
+                { name: "inStock", value: filters.inStock ? "true" : "" },
             ]
             : []),
     ];
@@ -42,19 +42,23 @@ const AllProduct = () => {
     const metaData = products?.meta;
 
     return (
-        <div>
-            <div>
-                <FilterComponent
-                    onFilterApply={setFilters}
-                    onReset={() => setFilters(null)}
-                />
+        <div className="w-[90%] max-w-[1400px] px-5 !mx-auto">
+            <h2>All Products</h2>
+            <div className="flex justify-between">
                 <SearchComponent
                     searchValue={searchValue}
                     setSearchValue={setSearchValue}
                     data={products}
                 />
+                <FilterComponent
+                    onFilterApply={setFilters}
+                    onReset={() => setFilters(null)}
+                />
+
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
                 {products?.data?.map((product: TProduct) => <SingleProduct key={product._id} product={product} />)}
             </div>
             <Pagination

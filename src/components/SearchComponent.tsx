@@ -64,21 +64,23 @@ export default function SearchComponent({ searchValue, data, setSearchValue }: S
     console.log("filteredData", filteredData);
 
     return (
-        <div className="w-full max-w-xl mx-auto">
+        <div className="w-full max-w-xl mx-auto m-24">
             {/* Click to Open Search Modal */}
-            <Input
-                size="large"
-                placeholder="Search..."
-                prefix={<SearchOutlined />}
-                suffix={<span className="text-gray-500 text-xs">⌘K</span>}
-                onClick={() => setIsModalOpen(true)}
-                value={searchValue}
-                readOnly
-            />
-            {/* Reset Search Button */}
-            <Button onClick={resetSearch} className="mt-2">
-                Reset Search
-            </Button>
+            <div className="flex">
+                <Input
+                    size="large"
+                    placeholder="Search..."
+                    prefix={<SearchOutlined />}
+                    suffix={<span className="text-gray-500 text-xs">⌘K</span>}
+                    onClick={() => setIsModalOpen(true)}
+                    value={searchValue}
+                    readOnly
+                />
+                {/* Reset Search Button */}
+                <Button onClick={resetSearch} className="mt-2">
+                    Reset Search
+                </Button>
+            </div>
 
             {/* Search Modal */}
             <Modal
@@ -93,7 +95,7 @@ export default function SearchComponent({ searchValue, data, setSearchValue }: S
                     <Input
                         prefix={<SearchOutlined />}
                         // ref={inputRef} 
-                        style={{outline: 'none', border: 'none'}}
+                        style={{ outline: 'none', border: 'none' }}
                         size="large"
                         placeholder="What are you looking for?"
                         value={searchText}

@@ -1,10 +1,10 @@
 import { Button, Row } from "antd";
 import { FieldValues } from "react-hook-form";
-import { useRegisterMutation } from "../redux/features/auth/authApi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import PHForm from "../components/form/PHForm";
-import PHInput from "../components/form/PHInput";
+import { useRegisterMutation } from "../../redux/features/auth/authApi";
+import PHForm from "../../components/form/PHForm";
+import PHInput from "../../components/form/PHInput";
 
 
 const Register = () => {

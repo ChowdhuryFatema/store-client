@@ -1,13 +1,13 @@
 import { Button, Row } from "antd";
 import { FieldValues } from "react-hook-form";
-import { useLoginMutation } from "../redux/features/auth/authApi";
-import { useAppDispatch } from "../redux/hook";
-import { setUser, TUser } from "../redux/features/auth/authSlice";
+import { useLoginMutation } from "../../redux/features/auth/authApi";
+import { useAppDispatch } from "../../redux/hook";
+import { setUser, TUser } from "../../redux/features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { verifyToken } from "../utils/verifyToken";
-import PHForm from "../components/form/PHForm";
-import PHInput from "../components/form/PHInput";
+import { verifyToken } from "../../utils/verifyToken";
+import PHForm from "../../components/form/PHForm";
+import PHInput from "../../components/form/PHInput";
 
 
 const Login = () => {
@@ -49,12 +49,12 @@ const Login = () => {
 
             dispatch(setUser({ user: user, token: res.data.accessToken }));
             toast.success('Logged in', { id: toastId, duration: 2000 })
-            if (user.role === 'admin') {
-                navigate(`/${user.role}/dashboard`)
-            } else {
-                navigate(`/store/home`)
-            }
+            // if (user.role === 'admin') {
+            //     navigate(`/${user.role}/dashboard`)
+            // } else {
+            // }
 
+            navigate(`/`)
         } catch (error) {
             toast.error('Something went wrong', { id: toastId })
         }
