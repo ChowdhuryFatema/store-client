@@ -8,6 +8,8 @@ export type TProduct = {
     quantity: number;
     category: string;
     inStock: boolean;
+    description: string;
+    rating: number;
     createdAt: string;
     updatedAt: string;
   }

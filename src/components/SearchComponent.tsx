@@ -62,24 +62,38 @@ export default function SearchComponent({ searchValue, data, setSearchValue }: S
     };
 
     console.log("filteredData", filteredData);
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.ctrlKey && event.key.toLowerCase() === "k") {
+                event.preventDefault(); // Prevent browser's search bar
+                setIsModalOpen(true);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
+
 
     return (
         <div className="w-full max-w-xl mx-auto m-24">
             {/* Click to Open Search Modal */}
-            <div className="flex">
+            <div className="flex relative">
                 <Input
                     size="large"
                     placeholder="Search..."
                     prefix={<SearchOutlined />}
-                    suffix={<span className="text-gray-500 text-xs">⌘K</span>}
+                    suffix={<span onClick={() => setIsModalOpen(true)} className="text-gray-500 text-xs cursor-pointer">⌘K</span>}
                     onClick={() => setIsModalOpen(true)}
                     value={searchValue}
                     readOnly
                 />
                 {/* Reset Search Button */}
-                <Button onClick={resetSearch} className="mt-2">
-                    Reset Search
-                </Button>
+                {/* <div onClick={resetSearch} className="mt-2 absolute right-10 top-[13px]">
+                    X
+                </div> */}
             </div>
 
             {/* Search Modal */}
@@ -94,15 +108,24 @@ export default function SearchComponent({ searchValue, data, setSearchValue }: S
                     {/* <SearchOutlined className="text-gray-500 text-lg" /> */}
                     <Input
                         prefix={<SearchOutlined />}
-                        // ref={inputRef} 
                         style={{ outline: 'none', border: 'none' }}
                         size="large"
                         placeholder="What are you looking for?"
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                         autoFocus
-                        suffix={loading && <Spin />}
+                        suffix={
+                            searchText && (
+                                <span
+                                    className="cursor-pointer text-gray-500 text-xs hover:text-black transition"
+                                    onClick={resetSearch}
+                                >
+                                    ✖
+                                </span>
+                            )
+                        }
                     />
+
                     <span
                         className="cursor-pointer bg-gray-100 px-2 py-1 rounded-md text-gray-500 text-xs"
                         onClick={() => setIsModalOpen(false)}

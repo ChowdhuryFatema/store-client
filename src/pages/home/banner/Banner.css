@@ -5,7 +5,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   .fader {
-    height: 40vh;
+    height: 70vh;
     position: relative;
     overflow: hidden;
   }

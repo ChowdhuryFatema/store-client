@@ -42,9 +42,9 @@ const AllProduct = () => {
     const metaData = products?.meta;
 
     return (
-        <div className="w-[90%] max-w-[1400px] px-5 !mx-auto">
-            <h2>All Products</h2>
-            <div className="flex justify-between">
+        <div className="w-[90%] max-w-[1400px] px-5 !mx-auto !my-10">
+            <h2 className="text-3xl">All Products</h2>
+            <div className="flex justify-between !my-5">
                 <SearchComponent
                     searchValue={searchValue}
                     setSearchValue={setSearchValue}
