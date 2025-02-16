@@ -1,24 +1,28 @@
+import { Controller, useFormContext } from "react-hook-form";
 import { Form, Input } from "antd";
-import { Controller } from "react-hook-form";
 
 type TInputProps = {
     type: string;
     name: string;
     label?: string;
+    style?: any;
 }
 
-const PHInput = ({ type, name, label }: TInputProps) => {
+const PHInput = ({ type, name, label, ...otherProps }: TInputProps) => {
+    const { control } = useFormContext(); // Get control from form context
 
     return (
         <Controller
             name={name}
-            render={({ field }) => (
+            control={control} // Add this
+            render={({ field, fieldState: { error } }) => (
                 <Form.Item label={label}>
-                    <Input {...field} type={type} id={name} size="large" />
+                    <Input {...otherProps} {...field} type={type} id={name} size="large" />
+                    {error && <small style={{ color: 'red' }}>{error.message}</small>}
                 </Form.Item>
             )}
         />
-    )
+    );
 };
 
 export default PHInput;

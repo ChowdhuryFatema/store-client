@@ -5,6 +5,8 @@ import { removeFromCart, updateQuantity } from '../redux/features/cart/cartSlice
 import { useCreateOrderMutation } from '../redux/features/order/order.api';
 import { useEffect } from 'react';
 import { toast } from 'sonner';
+import { selectCurrentUser } from '../redux/features/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 type TCartProps = {
     onClose: () => void;
@@ -15,12 +17,18 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
 
     const dispatch = useAppDispatch();
     const cartData = useAppSelector((state) => state.cart);
+    const user = useAppSelector(selectCurrentUser);
+    const navigate = useNavigate();
+    console.log("cartDataaa", cartData.items)
 
     const [createOrder, { isLoading, isSuccess, data, isError, error }] = useCreateOrderMutation();
 
     const handlePlaceOrder = async () => {
-
-        await createOrder({ products: cartData.items })
+        if (user) {
+            await createOrder({ products: cartData.items })
+        } else{
+            navigate("/login")
+        }
     };
 
     const toastId = "cart";
@@ -29,7 +37,7 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
         if (isLoading) toast.loading("Processing...", { id: toastId });
         if (isSuccess) {
             toast.success("Order placed successfully", { id: toastId })
-            if(data?.data){
+            if (data?.data) {
                 window.location.href = data?.data;
             }
         }

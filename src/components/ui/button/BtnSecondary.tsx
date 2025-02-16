@@ -1,6 +1,7 @@
 export type TBtnProps = {
     btnText: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    htmlType?: string; 
   };
   
   const BtnSecondary = ({ btnText, ...otherProps }: TBtnProps) => {

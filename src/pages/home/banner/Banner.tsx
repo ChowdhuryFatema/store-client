@@ -45,6 +45,8 @@ function Banner() {
     },
   });
 
+  console.log(instanceRef)
+
   return (
     <div>
       <div ref={sliderRef} className="fader">

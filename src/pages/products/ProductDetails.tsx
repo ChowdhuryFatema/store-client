@@ -4,6 +4,7 @@ import { useAppDispatch } from "../../redux/hook";
 import { addToCart } from "../../redux/features/cart/cartSlice";
 import BtnPrimary from "../../components/ui/button/BtnPrimary";
 import BtnSecondary from "../../components/ui/button/BtnSecondary";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 
 // Helper function to render stars
 const renderStars = (rating: number) => {
@@ -50,7 +51,7 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <div className="bg-white rounded-2xl shadow" style={{ padding: '24px' }}>
+            <div className="bg-white" style={{ padding: '24px' }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center">
                     <div>
                         <img src={product?.image} alt={product?.name} />
@@ -68,12 +69,22 @@ const ProductDetails = () => {
                         <p>Rating: {renderStars(product?.rating)}</p>
 
 
-                        <span className="!mr-3">
-                            <BtnPrimary btnText="Buy Now" />
-                        </span>
-                        <BtnSecondary
-                            btnText="Add to cart"
-                            onClick={handleAddToCart} />
+                        {
+                            product?.quantity <= 0 ?
+                                <p className="text-red-500">
+                                    <ExclamationCircleOutlined style={{ color: "red", marginRight: 5 }} />
+                                    Product Out of stock
+                                </p> :
+                                <div>
+                                    <span className="!mr-3">
+                                        <BtnPrimary btnText="Buy Now" />
+                                    </span>
+                                    <BtnSecondary
+                                        btnText="Add to cart"
+                                        onClick={handleAddToCart} />
+                                </div>
+                        }
+
                     </div>
                 </div>
             </div>

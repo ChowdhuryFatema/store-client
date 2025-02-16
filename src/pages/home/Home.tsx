@@ -11,8 +11,12 @@ const Home = () => {
         <div>
             <Banner />
             <div className="w-[90%] max-w-[1400px] px-5 !mx-auto">
-                <Offer />
-                <Feature />
+                <div className="!my-20">
+                    <Offer />
+                </div>
+                <div className="!my-20">
+                    <Feature />
+                </div>
             </div>
 
         </div>

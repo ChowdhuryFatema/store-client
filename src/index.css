@@ -20,8 +20,12 @@ p {
 }
 
 .ant-menu-item-selected {
-  background-color: #653967 !important;
+  background-color: #FF6900 !important;
   color: #ffffff !important;
+}
+
+.active {
+  color: #FF6900 !important;
 }
 
 /* .ant-menu-item {
@@ -35,4 +39,11 @@ p {
   /* background-color: #3F0B40 !important;
   color: #ffffff !important; */
   z-index: 50 !important;
+}
+
+.footer-bg {
+  background-image: url('./assets/images/banner1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

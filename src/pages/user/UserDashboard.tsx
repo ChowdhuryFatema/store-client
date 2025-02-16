@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
-const AdminDashboard = () => {
+const UserDashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileVisible, setMobileVisible] = useState(false);
   console.log(setMobileVisible)
@@ -29,16 +29,16 @@ const AdminDashboard = () => {
         <div style={{ height: 64, background: "#001529", margin: 16 }} />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1" icon={<DashboardOutlined />}>
-            <Link to="/dashboard">Dashboard</Link>
+           <Link to="/dashboard">Dashboard</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<DashboardOutlined />}>
-            <Link to="/create-product">Create product</Link>
+           <Link to="/create-product">Create product</Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<DashboardOutlined />}>
-            <Link to="/all-product">Bikes</Link>
+           <Link to="/all-product">Bikes</Link>
           </Menu.Item>
           <Menu.Item key="4" icon={<DashboardOutlined />}>
-            <Link to="/">Home</Link>
+           <Link to="/">Home</Link>
           </Menu.Item>
           {/* <Menu.Item key="2" icon={<UserOutlined />}>Users</Menu.Item>
           <Menu.Item key="3" icon={<SettingOutlined />}>Settings</Menu.Item> */}
@@ -63,6 +63,7 @@ const AdminDashboard = () => {
 
       <Layout>
         <Header style={{ background: "#001529", padding: "0 8px", display: "flex", alignItems: "center" }}>
+
         </Header>
         <Content>
           <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>Admin Dashboard Content</div>
@@ -72,4 +73,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default UserDashboard;

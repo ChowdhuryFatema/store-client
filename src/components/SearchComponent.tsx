@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Button, Input, Modal, Spin } from "antd";
+import { Input, Modal } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
 type SearchComponentProps = {
@@ -11,12 +11,12 @@ type SearchComponentProps = {
 
 export default function SearchComponent({ searchValue, data, setSearchValue }: SearchComponentProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [searchText, setSearchText] = useState("");
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const inputRef = useRef<HTMLInputElement | null>(null); // Reference to input element 
 
-    console.log(setLoading)
+    // console.log(setLoading)
     // Search only when pressing Enter
     const handleSearch = (query: string) => {
         if (!query.trim()) return;

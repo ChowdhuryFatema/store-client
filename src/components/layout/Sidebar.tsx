@@ -18,7 +18,7 @@ const userRole = {
 
 const Sidebar = () => {
     const [collapsed, setCollapsed] = useState(true);
-    const [isMobile, setIsMobile] = useState(false);
+    // const [isMobile, setIsMobile] = useState(false);
 
     const user = useAppSelector(selectCurrentUser);
 
@@ -72,10 +72,10 @@ const Sidebar = () => {
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 768) {
-                setIsMobile(true);
+                // setIsMobile(true);
                 setCollapsed(true);
             } else {
-                setIsMobile(false);
+                // setIsMobile(false);
                 setCollapsed(true);
             }
         };

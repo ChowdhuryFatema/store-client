@@ -1,47 +1,42 @@
-import { Button, Layout } from 'antd';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import { useDispatch } from 'react-redux';
-import { logout, selectCurrentUser } from '../../redux/features/auth/authSlice';
-
-import { useState } from 'react';
-import { useAppSelector } from '../../redux/hook';
+import { Layout } from 'antd';
+import { Outlet } from 'react-router-dom';
 import Navbar from '../Navbar';
+import Footer from '../Footer';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const MainLayout = () => {
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const user = useAppSelector(selectCurrentUser);
+    // const dispatch = useDispatch();
+    // const navigate = useNavigate();
+    // const user = useAppSelector(selectCurrentUser);
 
-    const handleLogout = () => {
-        dispatch(logout())
-        navigate('/login')
-    }
+    // const handleLogout = () => {
+    //     dispatch(logout())
+    //     navigate('/login')
+    // }
 
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
 
-    const showDrawer = () => {
-        setOpen(true);
-    };
+    // const showDrawer = () => {
+    //     setOpen(true);
+    // };
 
-    const onClose = () => {
-        setOpen(false);
-    };
+    // const onClose = () => {
+    //     setOpen(false);
+    // };
 
-    const navLinks = [
-        {
-            path: "/",
-            label: "Home",
-        },
-        {
-            path: "/all-product",
-            label: "Products",
-        },
+    // const navLinks = [
+    //     {
+    //         path: "/",
+    //         label: "Home",
+    //     },
+    //     {
+    //         path: "/all-product",
+    //         label: "Products",
+    //     },
 
-    ]
+    // ]
 
     return (
         <Layout style={{ position: 'relative' }}>
@@ -73,7 +68,7 @@ const MainLayout = () => {
                 </Header> */}
 
                 <Navbar />
-                <Content style={{marginBottom: '24px',}}>
+                <Content style={{ marginBottom: '24px', }}>
                     <div
                         style={{
                             // marginBottom: '24px',
@@ -85,6 +80,7 @@ const MainLayout = () => {
                         <Outlet />
                     </div>
                 </Content>
+                <Footer />
             </Layout>
         </Layout>
     );

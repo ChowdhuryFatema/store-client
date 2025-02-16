@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaRegHeart } from "react-icons/fa";
 import { useGetAllProductsQuery } from "../../../redux/features/products/products.api";
 import { Link } from "react-router-dom";
 import BtnPrimary from "../../../components/ui/button/BtnPrimary";
@@ -29,22 +28,22 @@ export default function OfferCard() {
     const seconds = timeLeft % 60;
 
     return (
-        <div className="rounded-lg p-6 w-96">
+        <div className="rounded-lg p-6 md:w-96">
             {/* Countdown Timer */}
-            <div className="flex justify-center space-x-4 mb-4">
+            <div className="flex gap-5 !mb-4 !pb-4 border-b border-gray-300">
                 {/* <div className="text-center p-2 border rounded-lg w-16">
           <p className="text-lg font-semibold">{days}</p>
           <p className="text-xs">Days</p>
         </div> */}
-                <div className="text-center p-2 border rounded-lg w-16">
+                <div className="text-center !p-2 border rounded-t-lg rounded-r-lg w-16">
                     <p className="text-lg font-semibold">{hours}</p>
                     <p className="text-xs">Hours</p>
                 </div>
-                <div className="text-center p-2 border rounded-lg w-16">
+                <div className="text-center !p-2 border rounded-t-lg rounded-r-lg w-16">
                     <p className="text-lg font-semibold">{minutes}</p>
                     <p className="text-xs">Minutes</p>
                 </div>
-                <div className="text-center p-2 border rounded-lg w-16">
+                <div className="text-center !p-2 border rounded-t-lg rounded-r-lg w-16">
                     <p className="text-lg font-semibold">{seconds}</p>
                     <p className="text-xs">Seconds</p>
                 </div>
@@ -53,7 +52,7 @@ export default function OfferCard() {
             {
                 products?.data?.slice(0, 1).map((product: TProduct) => (
 
-                    <div className="!p-5 border-t border-orange-100">
+                    <div>
                         <h1 className="text-xl">{product.name}</h1>
                         <div className="flex justify-between items-center">
                             <p>{renderStars(product.rating)}</p>
@@ -63,19 +62,23 @@ export default function OfferCard() {
                             <p className="text-red-500 font-bold text-2xl">${product.price}</p>
                             <p>Model: {product.model}</p>
                         </div>
-                        <div className="flex items-center">
-                            <span className="!mr-2 text-gray-600">Color:</span>
-                            <div className="flex gap-1">
-                                {["blue", "orange", "purple", "red", "gray"].map((color) => (
-                                    <button
-                                        key={color}
-                                        onClick={() => setSelectedColor(color)}
-                                        className={`w-3 h-3 rounded-full ${selectedColor === color ? "border-black" : "border-transparent"
-                                            }`}
-                                        style={{ backgroundColor: color }}
-                                    ></button>
-                                ))}
+                        <div className="flex items-center !mt-2 border-y border-gray-300 justify-between !py-2">
+                            <div className="flex items-center justify-between">
+                                <span className="!mr-2 text-gray-600">Color:</span>
+                                <div className="flex gap-1">
+                                    {["blue", "orange", "purple", "red", "gray"].map((color) => (
+                                        <button
+                                            key={color}
+                                            onClick={() => setSelectedColor(color)}
+                                            className={`w-3 h-3 rounded-full ${selectedColor === color ? "border-black" : "border-transparent"
+                                                }`}
+                                            style={{ backgroundColor: color }}
+                                        ></button>
+                                    ))}
+                                </div>
+
                             </div>
+                            <p>Category: {product.category}</p>
                         </div>
                         <div className="!mt-5 flex">
                             <Link to={`/all-product/${product._id}`}>

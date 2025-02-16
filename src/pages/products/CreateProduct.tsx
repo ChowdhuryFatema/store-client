@@ -1,83 +1,19 @@
 import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
-import { Button, Col, Flex, Form, Input } from "antd";
+import { Checkbox, Form, Input } from "antd";
 import { toast } from "sonner";
 import { useAddProductMutation } from "../../redux/features/products/products.api";
 import PHInput from "../../components/form/PHInput";
 import PHForm from "../../components/form/PHForm";
-import PHSelect from "../../components/form/PHSelect";
 import { TResponse } from "../../types";
 import { TProduct } from "../../types/product.type";
-
-const stockOption = [
-    {
-        label: "true",
-        value: "true",
-    },
-    {
-        label: "false",
-        value: "false",
-    }
-]
+import BtnPrimary from "../../components/ui/button/BtnPrimary";
+import { productSchema } from "./ProductSchema";
+import { zodResolver } from '@hookform/resolvers/zod';
 
 
 const CreateProduct = () => {
 
     const [addProduct] = useAddProductMutation();
-    // const [imgURL, setImgURL] = useState("");
-
-    // const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-
-    //     const toastId = toast.loading("Creating...")
-
-    //     console.log("imgUlr", imgURL)
-
-
-
-    //     try {
-
-
-
-
-    //         const ImgData = new FormData();
-    //         ImgData.append("image", data.image)
-
-
-    //         fetch("https://api.imgbb.com/1/upload?key=bf1c0909112d55ed03dd5922aefee45c", {
-    //             method: "POST",
-    //             body: ImgData
-    //         }).then(res => res.json())
-    //             .then(data => setImgURL(data?.data?.display_url));
-
-
-    //         const productData = {
-    //             name: data.name,
-    //             brand: data.brand,
-    //             price: data.price,
-    //             quantity: data.quantity,
-    //             image: imgURL,
-    //             category: data.category,
-    //             model: data.model,
-    //             inStock: data.inStock,
-    //         }
-
-
-    //         console.log(productData)
-    //         const res = await addProduct(productData) as TResponse<TProduct>;
-    //         console.log("res", res)
-
-    //         if (res.error) {
-    //             toast.error(res.error.data.message, { id: toastId })
-    //         }
-    //         else {
-    //             toast.success("Academic Semester Created Successfully", { id: toastId })
-    //         }
-
-    //     } catch (error) {
-    //         toast.error('Something went wrong', { id: toastId })
-    //     }
-    // }
-
-
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         const toastId = toast.loading("Creating...");
@@ -114,6 +50,7 @@ const CreateProduct = () => {
                 image: uploadedImgURL, // Use the uploaded image URL directly
                 category: data.category,
                 model: data.model,
+                rating: Number(data.rating),
                 inStock: data.inStock,
             };
 
@@ -134,42 +71,64 @@ const CreateProduct = () => {
         }
     };
 
-
-
-
-
     return (
-        <Flex align="center" justify="center">
-            <Col span={12}>
-                <PHForm onSubmit={onSubmit}
-                // resolver={zodResolver(academicSemesterSchema)}
-                >
+        <div className="!p-10">
+            <h2>Create Product</h2>
+            <PHForm onSubmit={onSubmit} resolver={zodResolver(productSchema)}
+            >
 
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     <PHInput label="Name" name="name" type="text" />
-                    <PHInput label="brand" name="brand" type="text" />
-                    <PHInput label="price" name="price" type="text" />
-                    <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                        <Controller
-                            name="image"
-                            render={({ field: { onChange, value, ...field } }) => (
-                                <Form.Item label="Picture">
-                                    <Input
-                                        type="file"
-                                        value={value?.fileName}
-                                        {...field}
-                                        onChange={(e) => onChange(e.target.files?.[0])} />
-                                </Form.Item>
-                            )}
-                        />
-                    </Col>
-                    <PHInput label="quantity" name="quantity" type="text" />
+                    <PHInput label="Brand" name="brand" type="text" />
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <PHInput label="Price" name="price" type="text" />
+                    <PHInput label="Rating" name="rating" type="text" />
+
+
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <PHInput label="Quantity" name="quantity" type="text" />
+                    <Controller
+                        name="image"
+                        render={({ field: { onChange, value, ...field }, fieldState: { error } }) => (
+                            <Form.Item label="Picture">
+                                <Input
+                                    type="file"
+                                    value={value?.fileName}
+                                    {...field}
+                                    onChange={(e) => onChange(e.target.files?.[0])} />
+                                {error && <small style={{ color: 'red' }}>{error.message}</small>}
+                            </Form.Item>
+                        )}
+                    />
+
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     <PHInput label="Category" name="category" type="text" />
-                    <PHInput label="model" name="model" type="text" />
-                    <PHSelect label="Stock" name="inStock" options={stockOption} />
-                    <Button htmlType="submit">Submit</Button>
-                </PHForm>
-            </Col>
-        </Flex>
+                    <PHInput label="Model" name="model" type="text" />
+                </div>
+                <Controller
+                    name="inStock"
+                    render={({ field: { onChange, value }, fieldState: { error } }) => (
+                        <Form.Item className="flex items-center gap-2">
+                            <Checkbox
+                                checked={value === "true"}
+                                onChange={(e) => onChange(e.target.checked ? "true" : "false")}
+                            >
+                                In Stock
+                            </Checkbox><br />
+                            {error && <small style={{ color: 'red' }}>{error.message}</small>}
+                        </Form.Item>
+                    )}
+                />
+
+                <BtnPrimary htmlType="submit" btnText="Submit" />
+            </PHForm>
+        </div>
     );
 };
 

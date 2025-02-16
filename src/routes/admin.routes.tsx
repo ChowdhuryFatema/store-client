@@ -1,7 +1,8 @@
 
 // import AdminDashboard from "../pages/admin/AdminDashboard";
-import CreateProduct from "../pages/products/CreateProduct";
-import AdminProtectedRoute from "./AdminProtectedRoute";
+// import AdminDashboard from "../pages/admin/AdminDashboard";
+// import CreateProduct from "../pages/products/CreateProduct";
+// import AdminProtectedRoute from "./AdminProtectedRoute";
 
 export const adminPaths = [
     // {
@@ -10,11 +11,11 @@ export const adminPaths = [
     //     element: <AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>,
             
     // },
-    {
-        name: "Create Product",
-        path: "create-product",
-        element: <AdminProtectedRoute><CreateProduct /></AdminProtectedRoute>,
-    },
+    // {
+    //     name: "Create Product",
+    //     path: "create-product",
+    //     element: <AdminProtectedRoute><CreateProduct /></AdminProtectedRoute>,
+    // },
     {
         name: "Academic Management",
         children: [
