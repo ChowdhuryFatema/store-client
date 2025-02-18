@@ -5,6 +5,7 @@ import { TProduct } from "../../types/product.type";
 import { TQueryParam } from "../../types";
 import { EditOutlined, DeleteOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const { confirm } = Modal;
 
@@ -19,7 +20,7 @@ const ProductManagement = () => {
         ...params
     ]);
 
-    const [deleteProduct, { error }] = useDeleteProductMutation();
+    const [deleteProduct] = useDeleteProductMutation();
 
     const metaData = products?.meta;
 
@@ -65,6 +66,8 @@ const ProductManagement = () => {
             )
         },
     ];
+
+    if(isLoading) return <LoadingSpinner />
 
     return (
         <div>

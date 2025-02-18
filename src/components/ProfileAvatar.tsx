@@ -19,11 +19,9 @@ const ProfileAvatar = () => {
     const [open, setOpen] = useState(false);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const handleLogout = () => {
         dispatch(logout())
-        navigate('/login')
     }
 
     const menu = (
@@ -34,8 +32,8 @@ const ProfileAvatar = () => {
             {/* <Menu.Item key="settings" icon={<SettingOutlined />}>
                 <Link to="/settings">Settings</Link>
             </Menu.Item> */}
-            <Menu.Item className="!text-orange-500" key="logout" icon={<LogoutOutlined />}>
-                <button onClick={handleLogout}>Logout</button>
+            <Menu.Item className="!text-orange-500 !cursor-pointer" key="logout" icon={<LogoutOutlined />}>
+                <button className="!cursor-pointer" onClick={handleLogout}>Logout</button>
             </Menu.Item>
         </Menu>
     );

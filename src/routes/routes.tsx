@@ -16,6 +16,11 @@ import AdminProtectedRoute from "./AdminProtectedRoute";
 import ProductManagement from "../pages/admin/ProductManagement";
 import UpdateProduct from "../pages/products/UpdateProduct";
 import Profile from "../pages/profile/Profile";
+import ProtectedRoute from "./ProtectedRoute";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import EcommerceDashboard from "../pages/dashboard/EcommerceDashboard";
+import DashboardManage from "../pages/dashboard/DashboardManage";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +48,14 @@ const router = createBrowserRouter([
             {
                 path: 'orders',
                 element: <AllOrder />
+            },
+            {
+                path: 'about-us',
+                element: <About />
+            },
+            {
+                path: 'contact-us',
+                element: <Contact />
             },
             // Admin Routs
             // {
@@ -74,11 +87,11 @@ const router = createBrowserRouter([
     {
         // name: "Dashboard",
         path: "dashboard",
-        element: <Dashboard />,
+        element: <ProtectedRoute><Dashboard /></ProtectedRoute>,
         children: [
             {
                 path: "/dashboard",
-                element: <Profile />,
+                element: <DashboardManage />,
             },
             {
                 path: "create-product",
@@ -98,6 +111,10 @@ const router = createBrowserRouter([
                 path: 'orders',
                 element: <AllOrder />
             },
+            // {
+            //     path: 'change-password',
+            //     element: <ChangePassword />
+            // },
         ]
 
     },

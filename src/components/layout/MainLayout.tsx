@@ -72,7 +72,7 @@ const MainLayout = () => {
                     <div
                         style={{
                             // marginBottom: '24px',
-                            minHeight: "100vh"
+                            minHeight: "80vh"
                         }}
                     >
                         {/* <div className='h-10 w-full'>

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 
 @import "tailwindcss";
 
@@ -7,6 +7,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.merienda {
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
 }
 
 body {
@@ -46,4 +51,13 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+.coupon-bg {
+  background-image: url('./assets/images/banner1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }

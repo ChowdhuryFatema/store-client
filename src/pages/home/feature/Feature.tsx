@@ -3,9 +3,11 @@ import { useGetAllProductsQuery } from "../../../redux/features/products/product
 import { TProduct } from "../../../types/product.type";
 import SingleProduct from "../../products/SingleProduct";
 import BtnSecondary from "../../../components/ui/button/BtnSecondary";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 
 const Feature = () => {
-    const { data: products } = useGetAllProductsQuery(undefined);
+    const { data: products, isLoading } = useGetAllProductsQuery(undefined);
+     if(isLoading) return <LoadingSpinner />
 
     return (
         <div>

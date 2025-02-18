@@ -1,9 +1,7 @@
 import Banner from "./banner/Banner";
 import Feature from "./feature/Feature";
 import Offer from "./offer/Offer";
-// import bike1 from "./../../assets/images/bike1.webp";
-// import bike2 from "./../../assets/images/bike2.jpg";
-// import bike3 from "./../../assets/images/bike3.webp";
+import ParallaxOverlay from "./ParallaxOverlay/ParallaxOverlay";
 
 
 const Home = () => {
@@ -15,8 +13,12 @@ const Home = () => {
                     <Offer />
                 </div>
                 <div className="!my-20">
+                    <ParallaxOverlay />
+                </div>
+                <div className="!my-20">
                     <Feature />
                 </div>
+
             </div>
 
         </div>

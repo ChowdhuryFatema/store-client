@@ -22,10 +22,14 @@ export const navLinks = [
         path: "/all-product",
         label: "Bikes",
     },
-    // {
-    //     path: "/dashboard",
-    //     label: "Dashboard",
-    // },
+    {
+        path: "/about-us",
+        label: "About",
+    },
+    {
+        path: "/contact-us",
+        label: "Contact",
+    },
 
 ]
 

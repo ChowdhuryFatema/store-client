@@ -1,3 +1,4 @@
+import LoadingSpinner from "../../components/LoadingSpinner";
 import { useGetAllOrdersQuery } from "../../redux/features/order/order.api";
 
 
@@ -35,12 +36,9 @@ export default function AllOrder() {
     });
     const orderData: Order[] = data?.data;
 
-    console.log("order", orderData)
+    if(isLoading) return <LoadingSpinner />
 
-    return isLoading ? (
-        // <Skeleton />
-        "Loading"
-    ) : (
+    return (
         <div className="mx-auto p-10 columns-1 divide-y divide-x">
             {orderData?.map((order) => (
                 <div className="grid grid-cols-2 gap-4">
@@ -56,10 +54,10 @@ export default function AllOrder() {
                         <p>
                             Status:{" "}
                             {/* <Badge
-                variant={order?.status === "Pending" ? "outline" : "default"}
-              >
-                {order?.status}
-              </Badge> */}
+            variant={order?.status === "Pending" ? "outline" : "default"}
+          >
+            {order?.status}
+          </Badge> */}
                         </p>
                     </div>
                     <div className="">
@@ -82,5 +80,6 @@ export default function AllOrder() {
                 </div>
             ))}
         </div>
-    );
+    )
+
 }
