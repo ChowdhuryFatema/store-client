@@ -2,10 +2,16 @@
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import "./GallerySlider.css"
-import sliderImg1 from '../../../assets/images/bike1.webp';
-import sliderImg2 from '../../../assets/images/bike2.jpg';
-import sliderImg3 from '../../../assets/images/bike3.webp';
-import sliderImg4 from '../../../assets/images/bike3.webp';
+import sliderImg1 from '../../../assets/images/banner8.webp';
+import sliderImg2 from '../../../assets/images/banner3.webp';
+import sliderImg3 from '../../../assets/images/banner2.jpg';
+import sliderImg4 from '../../../assets/images/banner5.jpg';
+import sliderImg5 from '../../../assets/images/banner1.jpg';
+import sliderImg6 from '../../../assets/images/banner2.jpg';
+import sliderImg7 from '../../../assets/images/banner3.webp';
+import sliderImg8 from '../../../assets/images/banner4.jpg';
+import sliderImg9 from '../../../assets/images/banner5.jpg';
+import sliderImg10 from '../../../assets/images/banner1.jpg';
 
 const carousel = (slider: any) => {
   const z = 760
@@ -61,22 +67,22 @@ export default function GallerySlider() {
               <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg4} alt="" />
             </div>
             <div className="carousel__cell number-slide5">
-              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg1} alt="" />
+              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg5} alt="" />
             </div>
             <div className="carousel__cell number-slide6">
-              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg2} alt="" />
+              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg6} alt="" />
             </div>
             <div className="carousel__cell number-slide7">
-              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg2} alt="" />
+              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg7} alt="" />
             </div>
             <div className="carousel__cell number-slide8">
-              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg2} alt="" />
+              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg8} alt="" />
             </div>
             <div className="carousel__cell number-slide7">
-              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg2} alt="" />
+              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg9} alt="" />
             </div>
             <div className="carousel__cell number-slide8">
-              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg2} alt="" />
+              <img className="rounded-xl w-[800px] h-[350px] shadow shadow-orange-200" src={sliderImg10} alt="" />
             </div>
           </div>
         </div>

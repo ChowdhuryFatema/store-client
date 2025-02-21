@@ -25,7 +25,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, Definition
 
     if (result.error?.status === 401) {
         console.log("Sending Refresh Token")
-        const res = await fetch('http://localhost:5000/api/auth/refresh-token', {
+        const res = await fetch('https://store-eight-tawny.vercel.app/api/auth/refresh-token', {
             method: 'POST',
             credentials: 'include',
         })
