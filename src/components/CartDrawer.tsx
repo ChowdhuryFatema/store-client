@@ -20,6 +20,7 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
     const user = useAppSelector(selectCurrentUser);
     const navigate = useNavigate();
     console.log("cartDataaa", cartData.items)
+    // console.log()
 
     const [createOrder, { isLoading, isSuccess, data, isError, error }] = useCreateOrderMutation();
 

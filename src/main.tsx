@@ -7,6 +7,10 @@ import { Provider } from 'react-redux'
 import { persistor, store } from './redux/store.ts'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Toaster } from 'sonner'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+// ..
+AOS.init();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

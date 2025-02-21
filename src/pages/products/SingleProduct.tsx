@@ -28,9 +28,9 @@ const SingleProduct = ({ product }: TProductProps) => {
     console.log("product", product);
 
     return (
-        <div className="bg-white rounded-2xl shadow border border-orange-100 relative">
-            <div className="rounded-2xl !p-2">
-                <img className="w-full h-[180px] rounded-2xl object-cover" src={product?.image} alt="" />
+        <div className="bg-white rounded-2xl shadow border border-gray-300 relative"  data-aos="zoom-in" data-aos-duration="500">
+            <div className="rounded-2xl flex justify-center items-center">
+                <img className="w-[300px] h-[220px] rounded-2xl object-cover" src={product?.image} alt="" />
             </div>
             <div className="!px-5 !py-3 border-t border-orange-100">
                 <h1 className="text-xl">{product.name}</h1>

@@ -60,6 +60,7 @@ const academicManagementApi = baseApi.injectEndpoints({
         url: `/products/${productId}`,
         method: 'DELETE'
       }),
+      invalidatesTags: ['Product'],
     }),
   }),
 });

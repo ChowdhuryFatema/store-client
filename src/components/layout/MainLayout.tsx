@@ -68,10 +68,9 @@ const MainLayout = () => {
                 </Header> */}
 
                 <Navbar />
-                <Content style={{ marginBottom: '24px', }}>
+                <Content>
                     <div
                         style={{
-                            // marginBottom: '24px',
                             minHeight: "80vh"
                         }}
                     >

@@ -47,7 +47,7 @@ const CreateProduct = () => {
                 brand: data.brand,
                 price: data.price,
                 quantity: data.quantity,
-                image: uploadedImgURL, // Use the uploaded image URL directly
+                image: uploadedImgURL, 
                 category: data.category,
                 model: data.model,
                 rating: Number(data.rating),
@@ -72,8 +72,8 @@ const CreateProduct = () => {
     };
 
     return (
-        <div className="!p-10">
-            <h2>Create Product</h2>
+        <div className="!p-10 bg-gray-50">
+            <h2 className="text-center text-orange-500 font-semibold text-4xl">Create Product</h2>
             <PHForm onSubmit={onSubmit} resolver={zodResolver(productSchema)}
             >
 
@@ -116,8 +116,8 @@ const CreateProduct = () => {
                     render={({ field: { onChange, value }, fieldState: { error } }) => (
                         <Form.Item className="flex items-center gap-2">
                             <Checkbox
-                                checked={value === "true"}
-                                onChange={(e) => onChange(e.target.checked ? "true" : "false")}
+                                checked={value === true}
+                                onChange={(e) => onChange(e.target.checked ? true : false)}
                             >
                                 In Stock
                             </Checkbox><br />

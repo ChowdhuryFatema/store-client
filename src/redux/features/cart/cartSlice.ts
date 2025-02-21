@@ -10,7 +10,7 @@ interface CartState {
 const initialState: CartState = {
     items: [],
     totalQuantity: 0,
-    totalPrice: 0,
+    totalPrice: 0
 }
 
 

@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Avatar, Dropdown, Menu } from "antd";
-import { SettingOutlined, DashboardOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { DashboardOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { useAppSelector } from "../redux/hook";
 import { logout, selectCurrentUser } from "../redux/features/auth/authSlice";
 import { useGetMeQuery } from "../redux/features/auth/authApi";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import profileImg from "../assets/icons/profile.jpg";
 
 
 
 const ProfileAvatar = () => {
     const user = useAppSelector(selectCurrentUser);
-    const { data, isLoading, error } = useGetMeQuery(user?.email, { skip: !user });
+    const { data } = useGetMeQuery(user?.email, { skip: !user });
 
     const me = data?.data;
     console.log("me", me)

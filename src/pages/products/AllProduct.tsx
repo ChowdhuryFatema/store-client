@@ -43,37 +43,48 @@ const AllProduct = () => {
     const metaData = products?.meta;
 
     return (
-       <>
-       {
-        isLoading ? <LoadingSpinner /> : 
-        <div className="w-[90%] max-w-[1400px] px-5 !mx-auto !my-10">
-        <h2 className="text-3xl">All Products</h2>
-        <div className="flex justify-between !my-5">
-            <SearchComponent
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                data={products}
-            />
-            <FilterComponent
-                onFilterApply={setFilters}
-                onReset={() => setFilters(null)}
-            />
+        <>
+            {
+                isLoading ? <LoadingSpinner /> :
+                    <div className="w-[90%] max-w-[1400px] px-5 !mx-auto !my-10">
+                        <div className="flex justify-center items-center">
+                            <div className="max-w-4xl mx-auto">
+                                <h2  data-aos="fade-down" data-aos-duration="500" className="merienda text-center font-semibold text-3xl md:text-4xl lg:text-5xl text-orange-500">All Products</h2>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap gap-5 justify-between !my-5 md:flex-row flex-col">
+                            {/* Move FilterComponent above SearchComponent on mobile */}
+                            <div className="order-2 md:order-1">
+                                <SearchComponent
+                                    searchValue={searchValue}
+                                    setSearchValue={setSearchValue}
+                                    data={products}
+                                />
+                            </div>
+                            <div className="order-1 md:order-2">
+                                <FilterComponent
+                                    onFilterApply={setFilters}
+                                    onReset={() => setFilters(null)}
+                                />
+                            </div>
+                        </div>
 
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 
-            {products?.data?.map((product: TProduct) => <SingleProduct key={product._id} product={product} />)}
-        </div>
-        <Pagination
-            align="end"
-            defaultCurrent={page}
-            total={metaData?.total}
-            pageSize={metaData?.limit}
-            onChange={(value) => setPage(value)} />
-    </div>
-       }
-       </>
+                            {products?.data?.map((product: TProduct) => <SingleProduct key={product._id} product={product} />)}
+                        </div>
+                        <div className="!mt-5">
+                            <Pagination
+                                align="end"
+                                defaultCurrent={page}
+                                total={metaData?.total}
+                                pageSize={metaData?.limit}
+                                onChange={(value) => setPage(value)} />
+                        </div>
+                    </div>
+            }
+        </>
     );
 };
 

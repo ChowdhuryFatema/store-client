@@ -1,6 +1,6 @@
 
 import { EnvironmentOutlined, MenuOutlined } from "@ant-design/icons";
-import { Menu, Drawer } from "antd";
+import { Drawer } from "antd";
 import "antd/dist/reset.css";
 import { useState } from "react";
 import CartDrawer from "./CartDrawer";
@@ -12,6 +12,8 @@ import { useAppSelector } from "../redux/hook";
 import ProfileAvatar from "./ProfileAvatar";
 import BtnPrimary from "./ui/button/BtnPrimary";
 import BtnSecondary from "./ui/button/BtnSecondary";
+import { useGetMeQuery } from "../redux/features/auth/authApi";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export const navLinks = [
     {
@@ -39,10 +41,10 @@ const Navbar = () => {
     const cartData = useAppSelector((state) => state.cart);
 
     const user = useAppSelector(selectCurrentUser);
-    // const { data, isLoading, error } = useGetMeQuery(user?.email, { skip: !user });
+    const { data } = useGetMeQuery(user?.email, { skip: !user });
 
-    // const me = data?.data;
-    // console.log("me", me)
+    const me = data?.data;
+    console.log("me", me)
 
     const showDrawer = () => {
         setVisible(true);
@@ -73,10 +75,14 @@ const Navbar = () => {
                             <EnvironmentOutlined style={{ fontSize: "16px", color: "white" }} />
                             <h2 className="text-white">Bangladesh</h2>
                         </div>
-                        <div>
-                        </div>
-                        <div>
-                            {user?.email}
+                        <div className="flex gap-5 items-center">
+                            <div className="hidden md:block">
+                                <LanguageSwitcher />
+                            </div>
+                            <div className="hidden md:block">
+                                <p>Return & Order</p>
+                            </div>
+                            <p>Hello, {user ? " " + me?.name : " sign in"}</p>
                         </div>
                     </div>
                 </div>
@@ -89,12 +95,16 @@ const Navbar = () => {
                         <MenuOutlined className="text-xl" />
                     </div>
                     <Drawer title="Menu" placement="left" onClose={closeDrawer} open={visible}>
-                        <Menu mode="vertical" selectable={false}>
-                            <Menu.Item key="1">Home</Menu.Item>
-                            <Menu.Item key="2">About</Menu.Item>
-                            <Menu.Item key="3">Services</Menu.Item>
-                            <Menu.Item key="4">Contact</Menu.Item>
-                        </Menu>
+                        <div className="!space-y-2">
+                            {
+                                navLinks.map((nav) => (
+                                    <NavLink style={{ color: "#8c8c8c" }}
+                                        className="!hover:text-orange-500 font-bold !px-5 block " key={nav.label} to={nav.path}>
+                                        {nav.label}
+                                    </NavLink>
+                                ))
+                            }
+                        </div>
                     </Drawer>
 
 

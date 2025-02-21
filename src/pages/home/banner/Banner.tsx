@@ -10,6 +10,8 @@ import banner5 from "./../../../assets/images/banner5.jpg";
 import banner6 from "./../../../assets/images/banner6.jpg";
 import banner7 from "./../../../assets/images/banner7.jpg";
 import banner8 from "./../../../assets/images/banner8.webp";
+import { SearchOutlined } from "@ant-design/icons";
+import { Input } from "antd";
 
 const images = [
   banner1,
@@ -53,10 +55,19 @@ function Banner() {
         {images.map((src, idx) => (
           <div key={idx}>
             <div className="bg-black w-full h-screen absolute z-10 opacity-10"></div>
-            <div className="text-white absolute z-30 flex justify-center items-center w-full h-[40vh]">
-              <div className="text-center">
-                <h1 className="text-7xl">This is Banner Content</h1>
-                <p>This is des</p>
+            <div className="text-white absolute z-30 flex justify-center items-center w-full h-[60vh]">
+              <div className="text-center lg:w-3xl !px-5 !py-5">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl" data-aos="fade-down" data-aos-duration="500">Pedal Your Way to   <span className='text-orange-500 !pt-5'>Freedom</span> </h2>
+                <p data-aos="fade-down" data-aos-duration="500" data-aos-delay="500">
+                  Discover the ultimate biking experience with our top-quality collection of bicycles, from rugged mountain bikes to sleek city rides. Whether you're a casual rider or a cycling enthusiast, we have the perfect bike to match your adventure. Shop now and hit the road with confidence!
+                </p>
+                <div className="flex justify-center items-center !mt-6 !px-5"  data-aos="fade-down" data-aos-duration="500" data-aos-delay="1000">
+                  <Input
+                    placeholder="Search for bikes, accessories, and more..."
+                    prefix={<SearchOutlined className="text-gray-500 text-xl" />}
+                    className="w-full max-w-xl h-10 text-lg rounded-full border-2 border-orange-500 px-6 shadow-md focus:border-orange-600"
+                  />
+                </div>
               </div>
             </div>
             <div className="fader__slide" style={{ opacity: opacities[idx] }}>

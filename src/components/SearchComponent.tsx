@@ -85,7 +85,8 @@ export default function SearchComponent({ searchValue, data, setSearchValue }: S
                     size="large"
                     placeholder="Search..."
                     prefix={<SearchOutlined />}
-                    suffix={<span onClick={() => setIsModalOpen(true)} className="text-gray-500 text-xs cursor-pointer">⌘K</span>}
+                    suffix={<span onClick={() => setIsModalOpen(true)} 
+                    className="text-gray-500 text-xs cursor-pointer">⌘K</span>}
                     onClick={() => setIsModalOpen(true)}
                     value={searchValue}
                     readOnly

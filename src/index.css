@@ -18,6 +18,10 @@ body {
   font-family: "Roboto", serif;
   font-weight: 400;
   font-style: normal;
+  background-color: #fff !important;
+}
+main {
+  background-color: #fff !important;
 }
 
 p {
@@ -25,8 +29,8 @@ p {
 }
 
 .ant-menu-item-selected {
-  background-color: #FF6900 !important;
-  color: #ffffff !important;
+  background-color: transparent !important;
+  color: #FF6900 !important;
 }
 
 .active {
@@ -55,7 +59,7 @@ p {
 
 
 .coupon-bg {
-  background-image: url('./assets/images/banner1.jpg');
+  background-image: url('./assets/images/bikeGroup.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

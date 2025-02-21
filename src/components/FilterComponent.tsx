@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dropdown, Menu, Slider, Select, Checkbox, Button, Space } from "antd";
 import { useGetAllProductsQuery } from "../redux/features/products/products.api";
+import { FilterOutlined } from "@ant-design/icons";
 
 type TProductFilterProps = {
     onFilterApply: any;
@@ -127,7 +128,8 @@ const FilterComponent = ({ onFilterApply, onReset }: TProductFilterProps) => {
     return (
         <Dropdown overlay={menu} trigger={['click']}>
             <Button>
-                <Space>Filter Products</Space>
+                <FilterOutlined />
+                <Space>Filter</Space>
             </Button>
         </Dropdown>
     );

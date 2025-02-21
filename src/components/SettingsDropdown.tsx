@@ -27,8 +27,8 @@ const SettingsDropdown = ({ setIsModalOpen }: TChangePasswordModalProps) => {
                 <button onClick={() => setIsModalOpen(true)} className="!cursor-pointer">Change Password</button>
 
             </Menu.Item>
-            <Menu.Item className="!text-orange-500 !cursor-pointer" key="logout" icon={<LogoutOutlined />}>
-                <button className="!cursor-pointer" onClick={handleLogout}>Logout</button>
+            <Menu.Item  onClick={handleLogout} className="!text-orange-500 !cursor-pointer" key="logout" icon={<LogoutOutlined />}>
+                <button className="!cursor-pointer">Logout</button>
             </Menu.Item>
         </Menu>
     );

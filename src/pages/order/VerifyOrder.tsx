@@ -144,7 +144,7 @@ export default function VerifyOrder() {
                         </div>
                     </div>
                     <div>
-                        <Link to="/orders">
+                        <Link to="/dashboard/orders">
                             <div className="w-full">View Orders</div>
                         </Link>
                     </div>

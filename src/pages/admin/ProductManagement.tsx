@@ -12,7 +12,7 @@ const { confirm } = Modal;
 type TTableData = Pick<TProduct, "name" | "brand" | "price" | "model" | "rating">;
 
 const ProductManagement = () => {
-    const [params, setParams] = useState<TQueryParam[]>([]);
+    const [params] = useState<TQueryParam[]>([]);
     const [page, setPage] = useState(1);
     const { data: products, isLoading, isFetching, refetch } = useGetAllProductsQuery([
         { name: "page", value: page },
@@ -53,9 +53,9 @@ const ProductManagement = () => {
             title: 'Action',
             key: 'action',
             render: (item) => (
-                <div>
+                <div className="flex gap-2">
                     <Link to={`/dashboard/update-product/${item.key}`}>
-                        <Button className="!mr-2">
+                        <Button>
                             <EditOutlined className="!text-orange-500 !font-extrabold text-lg" />
                         </Button>
                     </Link>
@@ -67,10 +67,10 @@ const ProductManagement = () => {
         },
     ];
 
-    if(isLoading) return <LoadingSpinner />
+    if (isLoading) return <LoadingSpinner />
 
     return (
-        <div>
+        <div className="!p-5">
             <Table<TTableData>
                 loading={isFetching}
                 columns={columns}
@@ -78,10 +78,12 @@ const ProductManagement = () => {
                 pagination={false}
                 showSorterTooltip={{ target: 'sorter-icon' }}
             />
-            <Pagination
-                onChange={(value) => setPage(value)}
-                defaultCurrent={page} total={metaData?.total}
-                pageSize={metaData?.limit} />
+            <div className="flex justify-end !mt-5">
+                <Pagination
+                    onChange={(value) => setPage(value)}
+                    defaultCurrent={page} total={metaData?.total}
+                    pageSize={metaData?.limit} />
+            </div>
         </div>
     );
 };

@@ -15,11 +15,9 @@ import CreateProduct from "../pages/products/CreateProduct";
 import AdminProtectedRoute from "./AdminProtectedRoute";
 import ProductManagement from "../pages/admin/ProductManagement";
 import UpdateProduct from "../pages/products/UpdateProduct";
-import Profile from "../pages/profile/Profile";
 import ProtectedRoute from "./ProtectedRoute";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import EcommerceDashboard from "../pages/dashboard/EcommerceDashboard";
 import DashboardManage from "../pages/dashboard/DashboardManage";
 
 const router = createBrowserRouter([
@@ -45,10 +43,10 @@ const router = createBrowserRouter([
                 path: 'order-verify',
                 element: <VerifyOrder />
             },
-            {
-                path: 'orders',
-                element: <AllOrder />
-            },
+            // {
+            //     path: 'orders',
+            //     element: <AllOrder />
+            // },
             {
                 path: 'about-us',
                 element: <About />

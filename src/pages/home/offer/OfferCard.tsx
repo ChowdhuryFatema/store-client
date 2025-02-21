@@ -28,13 +28,9 @@ export default function OfferCard() {
     const seconds = timeLeft % 60;
 
     return (
-        <div className="rounded-lg p-6 md:w-96">
+        <div className="rounded-lg p-6 md:w-96 !mx-au">
             {/* Countdown Timer */}
             <div className="flex gap-5 !mb-4 !pb-4 border-b border-gray-300">
-                {/* <div className="text-center p-2 border rounded-lg w-16">
-          <p className="text-lg font-semibold">{days}</p>
-          <p className="text-xs">Days</p>
-        </div> */}
                 <div className="text-center !p-2 border rounded-t-lg rounded-r-lg w-16">
                     <p className="text-lg font-semibold">{hours}</p>
                     <p className="text-xs">Hours</p>
@@ -84,12 +80,8 @@ export default function OfferCard() {
                             <Link to={`/all-product/${product._id}`}>
                                 <BtnPrimary btnText="View Details" />
                             </Link>
-                            {/* <button className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded flex items-center justify-center">
-                                🛒 ADD TO CART
-                            </button> */}
                         </div>
                     </div>
-
                 ))
             }
 
