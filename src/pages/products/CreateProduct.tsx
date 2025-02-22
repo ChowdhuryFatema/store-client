@@ -9,11 +9,13 @@ import { TProduct } from "../../types/product.type";
 import BtnPrimary from "../../components/ui/button/BtnPrimary";
 import { productSchema } from "./ProductSchema";
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from "react-router-dom";
 
 
 const CreateProduct = () => {
 
     const [addProduct] = useAddProductMutation();
+    const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         const toastId = toast.loading("Creating...");
@@ -54,17 +56,16 @@ const CreateProduct = () => {
                 inStock: data.inStock,
             };
 
-            console.log("productData", productData);
 
             // Call the API after image upload is done
             const res = await addProduct(productData) as TResponse<TProduct>;
 
-            console.log("res", res);
 
             if (res.error) {
                 toast.error(res.error.data.message, { id: toastId });
             } else {
                 toast.success("Product Created Successfully", { id: toastId });
+                navigate("/all-product")
             }
         } catch (error) {
             toast.error("Something went wrong", { id: toastId });

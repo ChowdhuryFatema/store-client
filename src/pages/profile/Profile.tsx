@@ -18,7 +18,7 @@ const Profile = ({ collapsed }: {collapsed: boolean}) => {
                 <div className="w-20 h-20 rounded-full border-4 border-orange-500 overflow-hidden">
                     <img
                         className="w-full h-full rounded-full object-cover p-1"
-                        src={me?.image ? me?.image : profileImg} alt="Profile"
+                        src={me?.image !== "null" ? me?.image : profileImg} alt="Profile"
                     />
                 </div>
             </div>

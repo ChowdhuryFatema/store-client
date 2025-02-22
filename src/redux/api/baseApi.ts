@@ -4,7 +4,7 @@ import { setUser } from "../features/auth/authSlice";
 // import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://localhost:5000/api',
+    baseUrl: 'https://store-eight-tawny.vercel.app/api',
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
         const token = (getState() as RootState).auth.token;
@@ -24,14 +24,11 @@ const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, Definition
     // }
 
     if (result.error?.status === 401) {
-        console.log("Sending Refresh Token")
         const res = await fetch('https://store-eight-tawny.vercel.app/api/auth/refresh-token', {
             method: 'POST',
             credentials: 'include',
         })
         const data = await res.json();
-
-        console.log("sdf",data)
 
         const user = await (api.getState() as RootState).auth.user;
 
@@ -41,10 +38,9 @@ const baseQueryWithRefreshToken: BaseQueryFn<FetchArgs, BaseQueryApi, Definition
                 token: data.data.accessToken
             })
         )
-        console.log(data)
         result = await baseQuery(args, api, extraOptions);
     }
-    console.log(result);
+
     return result;
 };
 

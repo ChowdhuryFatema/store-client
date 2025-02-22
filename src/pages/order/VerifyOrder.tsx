@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useVerifyOrderQuery } from "../../redux/features/order/order.api";
+import BtnPrimary from "../../components/ui/button/BtnPrimary";
 
 
 interface OrderData {
@@ -39,9 +40,7 @@ interface OrderData {
 export default function VerifyOrder() {
     const [searchParams] = useSearchParams();
 
-    const { 
-        // isLoading, 
-        data } = useVerifyOrderQuery(
+    const { data } = useVerifyOrderQuery(
         searchParams.get("order_id"),
         {
             refetchOnMountOrArgChange: true,
@@ -51,7 +50,7 @@ export default function VerifyOrder() {
     const orderData: OrderData = data?.data?.[0];
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="w-[90%] max-w-[1400px] !px-5 !mx-auto !my-10">
             <h1 className="text-3xl font-bold mb-6">Order Verification</h1>
             <div className="grid gap-6 md:grid-cols-2">
                 <div>
@@ -143,9 +142,9 @@ export default function VerifyOrder() {
                             )}
                         </div>
                     </div>
-                    <div>
+                    <div className="!mt-5">
                         <Link to="/dashboard/orders">
-                            <div className="w-full">View Orders</div>
+                            <BtnPrimary btnText="View Orders" />
                         </Link>
                     </div>
                 </div>

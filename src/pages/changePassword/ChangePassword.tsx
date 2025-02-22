@@ -21,7 +21,7 @@ const ChangePasswordModal = ({ setIsModalOpen, isModalOpen }: TChangePasswordMod
     };
 
     const onSubmit = async (data: FieldValues) => {
-        console.log(data);
+
         const toastId = toast.loading("Updating password...");
 
         try {

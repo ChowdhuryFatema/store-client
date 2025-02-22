@@ -18,11 +18,12 @@ const UpdateProduct = () => {
     const [updateProduct, { isLoading: uIsLoading }] = useUpdateProductMutation();
     const { productId } = useParams();
     const { data, isLoading, refetch } = useGetSingleProductQuery(productId)
+    // const navigate = useNavigate()
 
     const product = data?.data
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        console.log("Updating product with ID:", productId);
+
         const toastId = toast.loading("Updating...");
 
         try {
@@ -60,7 +61,6 @@ const UpdateProduct = () => {
                 inStock: data.inStock ?? product?.inStock,
             };
 
-            console.log("Sending updated data:", updatedProductData);
 
             const res = await updateProduct({ id: productId, productData: updatedProductData }) as TResponse<TProduct>;
 
@@ -72,6 +72,7 @@ const UpdateProduct = () => {
                 // 🔄 Refetch the updated data
                 await refetch();
                 window.location.reload();
+                // navigate("/all-product")
 
                 // 🔄 Reset form values with the updated data
                 // reset(updatedProductData);

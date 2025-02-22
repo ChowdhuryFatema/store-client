@@ -9,8 +9,7 @@ const { Header, Sider, Content } = Layout;
 
 const AdminDashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [mobileVisible, setMobileVisible] = useState(false);
-  console.log(setMobileVisible)
+  const [mobileVisible] = useState(false);
 
   const toggleSidebar = () => setCollapsed(!collapsed);
   // const toggleMobileSidebar = () => setMobileVisible(!mobileVisible);

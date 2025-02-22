@@ -1,5 +1,5 @@
 
-import { Button, Drawer } from 'antd';
+import { Drawer } from 'antd';
 import { useAppDispatch, useAppSelector } from '../redux/hook';
 import { removeFromCart, updateQuantity } from '../redux/features/cart/cartSlice';
 import { useCreateOrderMutation } from '../redux/features/order/order.api';
@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { toast } from 'sonner';
 import { selectCurrentUser } from '../redux/features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
+import BtnPrimary from './ui/button/BtnPrimary';
+import { DeleteOutlined } from "@ant-design/icons";
 
 type TCartProps = {
     onClose: () => void;
@@ -19,15 +21,13 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
     const cartData = useAppSelector((state) => state.cart);
     const user = useAppSelector(selectCurrentUser);
     const navigate = useNavigate();
-    console.log("cartDataaa", cartData.items)
-    // console.log()
 
     const [createOrder, { isLoading, isSuccess, data, isError, error }] = useCreateOrderMutation();
 
     const handlePlaceOrder = async () => {
         if (user) {
             await createOrder({ products: cartData.items })
-        } else{
+        } else {
             navigate("/login")
         }
     };
@@ -91,14 +91,13 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
                                         </button>
                                     </div>
                                 </div>
-                                <p className="text-sm font-semibold text-gray-800">
+                                <p className="text-sm font-semibold text-gray-800 !mt-5">
                                     ${(item.quantity * item.price).toFixed(2)}
                                 </p>
-                                <button
+                                <button className='!mt-5'
                                     onClick={() => dispatch(removeFromCart(item.product))}
-                                    className="text-red-600 text-sm hover:underline"
                                 >
-                                    Remove
+                                    <DeleteOutlined style={{ fontSize: "24px", cursor: "pointer", color: "red" }} />
                                 </button>
                             </li>
                         ))}
@@ -124,9 +123,9 @@ const CartDrawer = ({ onClose, open }: TCartProps) => {
                     </span>
                 </div>
 
-                <Button className="w-full" onClick={handlePlaceOrder}>
-                    Place Order
-                </Button>
+                <div className='fixed bottom-10 right-5'>
+                    <BtnPrimary onClick={handlePlaceOrder} btnText='Place Order' />
+                </div>
             </Drawer>
         </>
     );

@@ -14,13 +14,12 @@ const { Header, Sider, Content } = Layout;
 
 const Dashboard = () => {
     const [collapsed, setCollapsed] = useState(false);
-    const [mobileVisible, setMobileVisible] = useState(false);
+    const [mobileVisible] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const user = useAppSelector(selectCurrentUser);
-    console.log(setMobileVisible)
+
 
     const toggleSidebar = () => setCollapsed(!collapsed);
-    // const toggleMobileSidebar = () => setMobileVisible(!mobileVisible);
 
     return (
         <Layout style={{ minHeight: "100vh" }}>

@@ -26,12 +26,10 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                // name: "Home",
                 path: "/",
                 element: <Home />,
             },
             {
-                // name: "All Product",
                 path: "all-product",
                 element: <AllProduct />,
             },
@@ -43,10 +41,6 @@ const router = createBrowserRouter([
                 path: 'order-verify',
                 element: <VerifyOrder />
             },
-            // {
-            //     path: 'orders',
-            //     element: <AllOrder />
-            // },
             {
                 path: 'about-us',
                 element: <About />
@@ -55,19 +49,6 @@ const router = createBrowserRouter([
                 path: 'contact-us',
                 element: <Contact />
             },
-            // Admin Routs
-            // {
-            //     // name: "Dashboard",
-            //     path: "dashboard",
-            //     element: <AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>,
-
-            // },
-            // {
-            //     // name: "Create Product",
-            //     path: "create-product",
-            //     element: <AdminProtectedRoute><CreateProduct /></AdminProtectedRoute>,
-            // },
-
         ]
     },
     {
@@ -109,10 +90,6 @@ const router = createBrowserRouter([
                 path: 'orders',
                 element: <AllOrder />
             },
-            // {
-            //     path: 'change-password',
-            //     element: <ChangePassword />
-            // },
         ]
 
     },

@@ -33,17 +33,13 @@ const ProductDetails = () => {
     const { data: pro, isLoading: dIsLoading, error } = useGetSingleProductQuery(productId ?? "");
     const dispatch = useAppDispatch();
     const product = pro?.data;
-    console.log("product", product)
 
     // const cartData = useAppSelector((state) => state.cart);
     const user = useAppSelector(selectCurrentUser);
     const navigate = useNavigate();
-    // console.log("cartDataaa", cartData.items)
 
     const [createOrder, { isLoading, isSuccess, data, isError }] = useCreateOrderMutation();
 
-    // if (isLoading) return <div>Loading...</div>;
-    // if (error) return <div>Error fetching product details</div>;
 
     const handleAddToCart = () => {
         if (!product) return;
@@ -59,7 +55,6 @@ const ProductDetails = () => {
             })
         );
 
-        console.log("Product added to cart");
     };
 
     const handlePlaceOrder = async () => {
@@ -96,10 +91,10 @@ const ProductDetails = () => {
     if (dIsLoading) return <LoadingSpinner />
 
     return (
-        <div>
-            <div className="bg-white">
-                <div className="grid grid-cols-1 md:grid-cols-2 items-center !mb-10">
-                    <div>
+        <div className="bg-white">
+            <div className="w-[90%] max-w-[1400px] px-5 !mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-center !my-10">
+                    <div className="flex justify-center items-center">
                         <img src={product?.image} alt={product?.name} />
                     </div>
                     <div className="!space-y-3 !p-5">

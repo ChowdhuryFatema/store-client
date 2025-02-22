@@ -9,8 +9,6 @@ const LanguageSwitcher = () => {
 
   const handleChange = (value: string) => {
     setLanguage(value);
-    console.log("Language changed to:", value);
-    // Add functionality to update the language in your app
   };
 
   return (

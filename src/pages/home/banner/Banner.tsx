@@ -28,7 +28,7 @@ const animation = { duration: 1000, easing: (t: number) => t };
 
 function Banner() {
   const [opacities, setOpacities] = React.useState<number[]>([]);
-  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+  const [sliderRef] = useKeenSlider<HTMLDivElement>({
     slides: images.length,
     loop: true,
     created(s) {
@@ -47,7 +47,6 @@ function Banner() {
     },
   });
 
-  console.log(instanceRef)
 
   return (
     <div>

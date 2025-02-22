@@ -17,25 +17,11 @@ const Login = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
-    // const { register, handleSubmit } = ({
-    //     defaultValues: {
-    //         id: 'A-0001',
-    //         password: 'admin123'
-    //     }
-    // });
+    const [login] = useLoginMutation();
 
-    const defaultValues = {
-        email: 'admin1@gmail.com',
-        password: 'admin123'
-    }
-
-    const [login, { error }] = useLoginMutation();
-
-    // console.log("data => ", data)
-    console.log("error => ", error)
 
     const onSubmit = async (data: FieldValues) => {
-        console.log(data)
+   
         const toastId = toast.loading('Logging in')
 
 
@@ -65,13 +51,13 @@ const Login = () => {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-5 items-center h-screen">
-            <div className="col-span-2">
+            <div className="col-span-2 !my-5">
                 <div className="flex flex-col items-center !px-5 !md:px-10">
                     <div>
                         <h2 className="text-orange-500 text-2xl !font-semibold">Sign In</h2>
                     </div>
                     <Row>
-                        <PHForm onSubmit={onSubmit} defaultValues={defaultValues}>
+                        <PHForm onSubmit={onSubmit}>
                             <PHInput style={{ width: "280px" }} type='text' name='email' label="Email" />
                             <PHInput style={{ width: "280px" }} type='text' name='password' label="Password" />
                             <BtnPrimary btnText="Sign In" htmlType="submit" />
@@ -85,7 +71,7 @@ const Login = () => {
                     </Row>
                 </div>
             </div>
-            <div className="col-span-3 !md:ml-10">
+            <div className="col-span-3 !md:ml-10 hidden lg:block">
                 <img className="w-full h-screen object-cover" src={bike1} alt="" />
             </div>
         </div>

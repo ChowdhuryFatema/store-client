@@ -31,7 +31,6 @@ const academicManagementApi = baseApi.injectEndpoints({
     }),
     getSingleProduct: builder.query({
       query: (productId = "") => {
-        console.log('from redux', productId)
         return {
           url: `/products/${productId}`,
           method: 'GET',

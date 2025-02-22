@@ -15,7 +15,6 @@ const ProfileAvatar = () => {
     const { data } = useGetMeQuery(user?.email, { skip: !user });
 
     const me = data?.data;
-    console.log("me", me)
     const [open, setOpen] = useState(false);
 
     const dispatch = useDispatch();
@@ -50,7 +49,7 @@ const ProfileAvatar = () => {
                 <Avatar
                     className="cursor-pointer border-2 border-orange-500"
                     size={40}
-                    src={me?.image ? me?.image : profileImg} alt=""
+                    src={me?.image !== "null" ? me?.image : profileImg} alt=""
                     icon={!me?.image && <UserOutlined />}
                 />
             </div>

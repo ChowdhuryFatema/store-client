@@ -16,7 +16,6 @@ export default function SearchComponent({ searchValue, data, setSearchValue }: S
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const inputRef = useRef<HTMLInputElement | null>(null); // Reference to input element 
 
-    // console.log(setLoading)
     // Search only when pressing Enter
     const handleSearch = (query: string) => {
         if (!query.trim()) return;
@@ -61,7 +60,7 @@ export default function SearchComponent({ searchValue, data, setSearchValue }: S
         setSearchValue("");
     };
 
-    console.log("filteredData", filteredData);
+
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.ctrlKey && event.key.toLowerCase() === "k") {

@@ -44,7 +44,6 @@ const Navbar = () => {
     const { data } = useGetMeQuery(user?.email, { skip: !user });
 
     const me = data?.data;
-    console.log("me", me)
 
     const showDrawer = () => {
         setVisible(true);
@@ -95,11 +94,11 @@ const Navbar = () => {
                         <MenuOutlined className="text-xl" />
                     </div>
                     <Drawer title="Menu" placement="left" onClose={closeDrawer} open={visible}>
-                        <div className="!space-y-2">
+                        <div className="!space-y-3">
                             {
                                 navLinks.map((nav) => (
                                     <NavLink style={{ color: "#8c8c8c" }}
-                                        className="!hover:text-orange-500 font-bold !px-5 block " key={nav.label} to={nav.path}>
+                                        className="!hover:text-orange-500 font-bold !px-5 block text-lg" key={nav.label} to={nav.path}>
                                         {nav.label}
                                     </NavLink>
                                 ))
@@ -150,10 +149,12 @@ const Navbar = () => {
                             {
                                 user ?
                                     <ProfileAvatar /> :
-                                    <div className="!space-x-2">
-                                        <Link to="/register">
-                                            <BtnPrimary btnText="Sign Up" />
-                                        </Link>
+                                    <div className="!space-x-2 flex">
+                                        <div className="hidden md:flex">
+                                            <Link to="/register">
+                                                <BtnPrimary btnText="Sign Up" />
+                                            </Link>
+                                        </div>
                                         <Link to="/login">
                                             <BtnSecondary btnText="Sign In" />
                                         </Link>

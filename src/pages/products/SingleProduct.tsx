@@ -25,7 +25,6 @@ export const renderStars = (rating: number) => {
 };
 
 const SingleProduct = ({ product }: TProductProps) => {
-    console.log("product", product);
 
     return (
         <div className="bg-white rounded-2xl shadow border border-gray-300 relative"  data-aos="zoom-in" data-aos-duration="500">

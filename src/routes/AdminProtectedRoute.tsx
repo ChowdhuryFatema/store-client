@@ -12,8 +12,6 @@ const AdminProtectedRoute = ({ children }: { children: ReactNode }) => {
 
     const dispatch = useDispatch();
 
-    console.log(user)
-
     if (user?.role !== 'admin') {
         dispatch(logout())
     }

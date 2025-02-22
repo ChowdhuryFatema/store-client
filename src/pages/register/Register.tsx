@@ -12,28 +12,14 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const defaultValues = {
-        "name": "Admin User",
-        "email": "user@example.com",
-        "password": "user123",
-    }
-
-    const [register, { error }] = useRegisterMutation();
-
-    // console.log("data => ", data)
-    console.log("error => ", error)
+    const [register] = useRegisterMutation();
 
     const onSubmit = async (data: FieldValues) => {
-        console.log(data)
-        const toastId = toast.loading('Logging in')
 
+        const toastId = toast.loading('Logging in')
 
         try {
 
-
-
-
-            // Create FormData
             const ImgData = new FormData();
             ImgData.append("image", data.image);
 
@@ -49,20 +35,15 @@ const Register = () => {
             const imgUploadData = await imgUploadResponse.json();
             const uploadedImgURL = imgUploadData?.data?.display_url;
 
-            if (!uploadedImgURL) {
-                throw new Error("Image upload failed");
-            }
-
-
-
-
-
+            // if (!uploadedImgURL) {
+            //     throw new Error("Image upload failed");
+            // }
 
             const userInfo = {
                 name: data.name,
                 email: data.email,
                 password: data.password,
-                image: uploadedImgURL,
+                image: uploadedImgURL ? uploadedImgURL : "null",
                 role: 'user',
             }
 
@@ -74,21 +55,21 @@ const Register = () => {
 
         } catch (error) {
             toast.error('Something went wrong', { id: toastId })
+            console.log("error", error)
 
-            console.log("err", error)
         }
 
     }
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-5 items-center h-screen">
-            <div className="col-span-2">
+            <div className="col-span-2 !py-5">
                 <div className="flex flex-col items-center !px-5 !md:px-10">
                     <div>
-                        <h2 className="text-orange-500 text-2xl !font-semibold">Sign In</h2>
+                        <h2 className="text-orange-500 text-2xl !font-semibold">Sign Up</h2>
                     </div>
                     <Row>
-                        <PHForm onSubmit={onSubmit} defaultValues={defaultValues}>
+                        <PHForm onSubmit={onSubmit}>
                             <PHInput style={{ width: "280px" }} type='text' name='name' label="Name" />
                             <PHInput style={{ width: "280px" }} type='text' name='email' label="Email" />
                             <PHInput style={{ width: "280px" }} type='text' name='password' label="Password" />
@@ -114,7 +95,7 @@ const Register = () => {
                     </Row>
                 </div>
             </div>
-            <div className="col-span-3 !md:ml-10">
+            <div className="col-span-3 !md:ml-10 hidden lg:block">
                 <img className="w-full h-screen object-cover" src={bike1} alt="" />
             </div>
         </div>
