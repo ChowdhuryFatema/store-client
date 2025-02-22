@@ -8,7 +8,7 @@
 - Node.js
 - npm
 - Git
-- 
+
 #### Clone the repository:
 - git clone https://github.com/ChowdhuryFatema/store-client.git
 - cd your-repository
