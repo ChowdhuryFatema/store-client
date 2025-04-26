@@ -16,30 +16,30 @@ Logout functionality to clear the session.
 🌐 Public Routes
 Home Page:
 
-Responsive navbar with logo, links, and authentication buttons.
+- Responsive navbar with logo, links, and authentication buttons.
 
-Attractive banner section and featured products.
+- Attractive banner section and featured products.
 
-Extra sections and a detailed footer.
+- Extra sections and a detailed footer.
 
 All Products Page:
 
-Dynamic search and advanced filtering (brand, model, price, category, availability).
+- Dynamic search and advanced filtering (brand, model, price, category, availability).
 
-Product cards with a "View Details" button.
+- Product cards with a "View Details" button.
 
-Product Details Page:
+- Product Details Page:
 
-A detailed view of the product is available with a "Buy Now" option.
+- A detailed view of the product is available with a "Buy Now" option.
 
 About Page:
 
-Information about the shop and its mission.
+- Information about the shop and its mission.
 
 🔒 Private Routes
 Checkout Page:
 
-Order form with stock validation.
+- Order form with stock validation.
 
 Payment integration using SurjoPay.
 
@@ -47,26 +47,26 @@ Dashboard:
 
 Admin:
 
-Manage users (deactivate accounts).
+- Manage users (deactivate accounts).
 
-Manage products (CRUD operations).
+- Manage products (CRUD operations).
 
-Manage orders (CRUD operations, status updates).
+- Manage orders (CRUD operations, status updates).
 
 Customer:
 
-View and manage orders.
+- View and manage orders.
 
-Update password securely.
+- Update password securely.
 
 🎨 UI/UX Design
-Fully responsive on mobile, tablet, and desktop devices.
+- Fully responsive on mobile, tablet, and desktop devices.
 
-Loading indicators during API calls.
+- Loading indicators during API calls.
 
-Toast notifications for key actions.
+- Toast notifications for key actions.
 
-Clear and friendly error handling (invalid credentials, duplicate emails, out-of-stock errors).
+- Clear and friendly error handling (invalid credentials, duplicate emails, out-of-stock errors).
 
 ⚙️ Tech Stack
 
