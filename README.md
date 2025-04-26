@@ -76,24 +76,24 @@ Frameworks & Tools
 - Vite — Fast development and build tool
 - TypeScript — Strongly typed JavaScript
 - React — Frontend library
-TailwindCSS — Utility-first CSS framework
-Ant Design (antd) — UI Components library
-Redux Toolkit — State management
-Redux Persist — Persist Redux state
-React Router DOM — Routing
+- TailwindCSS — Utility-first CSS framework
+- Ant Design (antd) — UI Components library
+- Redux Toolkit — State management
+- Redux Persist — Persist Redux state
+- React Router DOM — Routing
 
 Useful Libraries
 
-AOS — Animate on scroll
-JWT Decode — Decode JWT tokens
-React Hook Form — Form handling
-Zod — Schema validation
-Sonner — Toast notifications
-React Spinners — Loaders
-Recharts — Charts & graphs
-React World Flags — Display flags
-Keen Slider — Sliders and carousels
-React Icons — Icon pack
+- AOS — Animate on scroll
+- JWT Decode — Decode JWT tokens
+- React Hook Form — Form handling
+- Zod — Schema validation
+- Sonner — Toast notifications
+- React Spinners — Loaders
+- Recharts — Charts & graphs
+- React World Flags — Display flags
+- Keen Slider — Sliders and carousels
+- React Icons — Icon pack
 
 Backend: Node.js, Express.js
 
