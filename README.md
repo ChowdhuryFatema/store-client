@@ -73,9 +73,9 @@ Clear and friendly error handling (invalid credentials, duplicate emails, out-of
 Frontend: 
 
 Frameworks & Tools
-Vite — Fast development and build tool
-TypeScript — Strongly typed JavaScript
-React — Frontend library
+- Vite — Fast development and build tool
+- TypeScript — Strongly typed JavaScript
+- React — Frontend library
 TailwindCSS — Utility-first CSS framework
 Ant Design (antd) — UI Components library
 Redux Toolkit — State management
