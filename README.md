@@ -16,19 +16,14 @@ Secure registration and login with hashed passwords.
 ### Home Page:
 
 - Responsive navbar with logo, links, and authentication buttons.
-
 - Attractive banner section and featured products.
-
 - Extra sections and a detailed footer.
 
 ### All Products Page:
 
 - Dynamic search and advanced filtering (brand, model, price, category, availability).
-
 - Product cards with a "View Details" button.
-
 - Product Details Page:
-
 - A detailed view of the product is available with a "Buy Now" option.
 
 ### About Page:
@@ -46,24 +41,18 @@ Checkout Page:
 ### Admin:
 
 - Manage users (deactivate accounts).
-
 - Manage products (CRUD operations).
-
 - Manage orders (CRUD operations, status updates).
 
 ### Customer:
 
 - View and manage orders.
-
 - Update password securely.
 
 ## 🎨 UI/UX Design
 - Fully responsive on mobile, tablet, and desktop devices.
-
 - Loading indicators during API calls.
-
 - Toast notifications for key actions.
-
 - Clear and friendly error handling (invalid credentials, duplicate emails, out-of-stock errors).
 
 ## ⚙️ Tech Stack
@@ -111,11 +100,8 @@ cd bike-shop-app
 # Install frontend dependencies
 npm install
 
-
-
-
 cd frontend
-npm start
+npm run dev
 
 
 
