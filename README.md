@@ -101,6 +101,7 @@ cd bike-shop-app
 npm install
 
 cd frontend
+
 npm run dev
 
 
