@@ -2,9 +2,9 @@
 
 A Bike Shop platform built with full-stack technologies, offering secure authentication, smooth product management, responsive design, and a user-friendly shopping experience.
 
-Live Demo: https://store-pro-three.vercel.app
+## Live Demo: https://store-pro-three.vercel.app
 
-✨ Features
+## ✨ Features
 🔒 User Registration & Authentication (Role-Based)
 Secure registration and login with hashed passwords.
 
@@ -12,8 +12,8 @@ Secure registration and login with hashed passwords.
 - Role-based access: Customer (default) and Admin (manually assigned).
 - Logout functionality to clear the session.
 
-🌐 Public Routes
-Home Page:
+## 🌐 Public Routes
+### Home Page:
 
 - Responsive navbar with logo, links, and authentication buttons.
 
@@ -21,7 +21,7 @@ Home Page:
 
 - Extra sections and a detailed footer.
 
-All Products Page:
+### All Products Page:
 
 - Dynamic search and advanced filtering (brand, model, price, category, availability).
 
@@ -31,20 +31,19 @@ All Products Page:
 
 - A detailed view of the product is available with a "Buy Now" option.
 
-About Page:
+### About Page:
 
 - Information about the shop and its mission.
 
-🔒 Private Routes
+## 🔒 Private Routes
 Checkout Page:
 
 - Order form with stock validation.
+- Payment integration using SurjoPay.
 
-Payment integration using SurjoPay.
+## Dashboard:
 
-Dashboard:
-
-Admin:
+### Admin:
 
 - Manage users (deactivate accounts).
 
@@ -52,13 +51,13 @@ Admin:
 
 - Manage orders (CRUD operations, status updates).
 
-Customer:
+### Customer:
 
 - View and manage orders.
 
 - Update password securely.
 
-🎨 UI/UX Design
+## 🎨 UI/UX Design
 - Fully responsive on mobile, tablet, and desktop devices.
 
 - Loading indicators during API calls.
@@ -67,11 +66,11 @@ Customer:
 
 - Clear and friendly error handling (invalid credentials, duplicate emails, out-of-stock errors).
 
-⚙️ Tech Stack
+## ⚙️ Tech Stack
 
-Frontend: 
+## Frontend: 
 
-Frameworks & Tools
+### Frameworks & Tools
 - Vite — Fast development and build tool
 - TypeScript — Strongly typed JavaScript
 - React — Frontend library
@@ -81,8 +80,7 @@ Frameworks & Tools
 - Redux Persist — Persist Redux state
 - React Router DOM — Routing
 
-Useful Libraries
-
+### Useful Libraries
 - AOS — Animate on scroll
 - JWT Decode — Decode JWT tokens
 - React Hook Form — Form handling
@@ -94,17 +92,13 @@ Useful Libraries
 - Keen Slider — Sliders and carousels
 - React Icons — Icon pack
 
-Backend: Node.js, Express.js
+- Backend: Node.js, Express.js
+- Database: MongoDB (Mongoose)
+- Authentication: JWT, bcrypt
+- Payment Gateway: SurjoPay
+- Hosting:  Vercel 
 
-Database: MongoDB (Mongoose)
-
-Authentication: JWT, bcrypt
-
-Payment Gateway: SurjoPay
-
-Hosting:  Vercel 
-
-🚀 Getting Started
+## 🚀 Getting Started
 Prerequisites
 Node.js installed
 
