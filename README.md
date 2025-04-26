@@ -2,7 +2,7 @@
 
 A Bike Shop platform built with full-stack technologies, offering secure authentication, smooth product management, responsive design, and a user-friendly shopping experience.
 
-## Live Demo: https://store-pro-three.vercel.app
+### Live Demo: https://store-pro-three.vercel.app
 
 ## ✨ Features
 🔒 User Registration & Authentication (Role-Based)
