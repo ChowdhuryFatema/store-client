@@ -77,7 +77,6 @@ Checkout Page:
 - Sonner — Toast notifications
 - React Spinners — Loaders
 - Recharts — Charts & graphs
-- React World Flags — Display flags
 - Keen Slider — Sliders and carousels
 - React Icons — Icon pack
 
