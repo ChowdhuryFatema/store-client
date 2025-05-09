@@ -101,6 +101,7 @@ const Navbar = () => {
               placement="left"
               onClose={closeDrawer}
               open={visible}
+              onClick={closeDrawer}
             >
               <div className="!space-y-3">
                 {navLinks.map((nav) => (
