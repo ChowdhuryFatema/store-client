@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState, useRef } from "react";
 import { Input, Modal } from "antd";
 import { SearchOutlined } from "@ant-design/icons";

@@ -20,6 +20,7 @@ body {
   font-style: normal;
   background-color: #fff !important;
 }
+
 main {
   background-color: #fff !important;
 }
@@ -65,3 +66,48 @@ p {
   background-position: center;
   background-attachment: fixed;
 }
+
+.ant-pagination .ant-pagination-item-active a {
+  color: #FF6900;
+}
+
+.ant-pagination-item-active {
+  border-color: #FF6900 !important;
+}
+
+/* styles.css or your global CSS */
+.ant-slider-track {
+  background-color: #FF6900 !important;
+  /* change to your desired color */
+}
+.ant-slider-track:hover .ant-slider .ant-slider-handle::after  {
+  background-color: #FF6900 !important;
+  box-shadow: 0 0 0 2px #FF6900 !important;
+}
+
+.ant-slider-handle {
+  border-color: #FF6900 !important;
+}
+
+.ant-slider-rail {
+  background-color: #e5e7eb !important;
+  /* optional: rail color */
+}
+
+.ant-slider .ant-slider-handle::after {
+
+  box-shadow: 0 0 0 2px #FF6900 !important;
+}
+
+.ant-slider-handle:focus::after {
+  box-shadow: 0 0 0 2.5px #FF6900 !important;
+}
+.ant-slider .ant-slider-handle:hover:after {
+  box-shadow: 0 0 0 2.5px #FF6900 !important;
+}
+
+
+.ant-form-item {
+  margin-bottom: 8px !important;
+}
+

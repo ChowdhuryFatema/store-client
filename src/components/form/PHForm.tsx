@@ -1,44 +1,59 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Form } from "antd";
-import { ReactNode } from "react";
-import { FieldValues, FormProvider, SubmitHandler, useForm } from "react-hook-form";
-
+import { ReactNode, useEffect } from "react";
+import {
+  FieldValues,
+  FormProvider,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
 
 type TFormConfig = {
-    defaultValues?: Record<string, any>;
-    resolver?: any; 
-}
+  defaultValues?: Record<string, any>;
+  resolver?: any;
+};
 
 type TFormProps = {
-    onSubmit: SubmitHandler<FieldValues>;
-    children: ReactNode;
+  onSubmit: SubmitHandler<FieldValues>;
+  children: ReactNode;
 } & TFormConfig;
 
-const PHForm = ({ onSubmit, children, defaultValues, resolver }: TFormProps) => {
+const PHForm = ({
+  onSubmit,
+  children,
+  defaultValues,
+  resolver,
+}: TFormProps) => {
+  const formConfig: TFormConfig = {};
 
-    const formConfig: TFormConfig = {};
+  if (defaultValues) {
+    formConfig["defaultValues"] = defaultValues;
+  }
 
+  if (resolver) {
+    formConfig["resolver"] = resolver;
+  }
+
+  const methods = useForm(formConfig);
+  // ✅ Reset form whenever defaultValues change
+  useEffect(() => {
     if (defaultValues) {
-        formConfig['defaultValues'] = defaultValues;
+      methods.reset(defaultValues);
     }
+  }, [defaultValues]);
 
-    if(resolver){
-        formConfig['resolver'] = resolver;
-    }
+  const submit: SubmitHandler<FieldValues> = (data) => {
+    onSubmit(data);
+    methods.reset();
+  };
 
-    const methods = useForm(formConfig)
-
-    const submit: SubmitHandler<FieldValues> = (data) => {
-        onSubmit(data);
-        methods.reset();
-    }
-
-    return (
-        <FormProvider {...methods}>
-            <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
-                {children}
-            </Form>
-        </FormProvider>
-    );
+  return (
+    <FormProvider {...methods}>
+      <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
+        {children}
+      </Form>
+    </FormProvider>
+  );
 };
 
 export default PHForm;

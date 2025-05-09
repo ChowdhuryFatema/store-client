@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Controller, useFormContext } from "react-hook-form";
 import { Form, Input } from "antd";
 

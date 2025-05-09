@@ -79,6 +79,7 @@ const UpdateProduct = () => {
             }
         } catch (error) {
             toast.error("Something went wrong", { id: toastId });
+            console.log(error)
         }
     };
 
@@ -88,7 +89,7 @@ const UpdateProduct = () => {
         <div>
 
             <div className="!p-10">
-                <h2>Update Product</h2>
+                <h2 className="text-center text-orange-500 font-semibold text-4xl">Update Product</h2>
                 <PHForm onSubmit={onSubmit}
                     defaultValues={product}
                     resolver={zodResolver(productUpdateSchema)}

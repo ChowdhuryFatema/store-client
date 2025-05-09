@@ -1,5 +1,7 @@
 import { useState } from "react";
 import BtnPrimary from "../components/ui/button/BtnPrimary";
+import { Input } from "antd";
+import TextArea from "antd/es/input/TextArea";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -8,7 +10,9 @@ function Contact() {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -25,12 +29,19 @@ function Contact() {
         <div data-aos="zoom-in" data-aos-duration="500">
           <h2 className="text-2xl font-bold">Get in Touch</h2>
           <p className="!mt-4 text-gray-600">
-            Have any questions? Feel free to reach out to us. We're here to help!
+            Have any questions? Feel free to reach out to us. We're here to
+            help!
           </p>
           <div className="!mt-6 !space-y-4">
-            <p><strong>Email:</strong> fatemachowdhury318@gmail.com</p>
-            <p><strong>Phone:</strong> +123 456 7890</p>
-            <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+            <p>
+              <strong>Email:</strong> fatemachowdhury318@gmail.com
+            </p>
+            <p>
+              <strong>Phone:</strong> +123 456 7890
+            </p>
+            <p>
+              <strong>Address:</strong> Fatikchari, Chittagong, Bangladesh
+            </p>
           </div>
         </div>
 
@@ -38,37 +49,32 @@ function Contact() {
         <div data-aos="zoom-in" data-aos-duration="500">
           <h2 className="text-2xl font-bold !mb-4">Send us a message</h2>
           <form onSubmit={handleSubmit} className="!space-y-4">
-            <input
-              type="text"
+            <Input
               name="name"
               placeholder="Your Name"
-              className="w-full !p-3 border rounded outline-0"
+              size="large"
               value={formData.name}
               onChange={handleChange}
               required
             />
-            <input
-              type="email"
+            <Input
               name="email"
+              type="email"
               placeholder="Your Email"
-              className="w-full !p-3 border rounded outline-0"
+              size="large"
               value={formData.email}
               onChange={handleChange}
               required
             />
-            <textarea
+            <TextArea
               name="message"
               placeholder="Your Message"
-              className="w-full !p-3 border rounded outline-0"
               rows={4}
               value={formData.message}
               onChange={handleChange}
               required
             />
-            <BtnPrimary 
-            // type="submit" 
-            // className="w-full !p-3 bg-blue-600 text-white font-bold rounded"
-             btnText=" Send Message" />
+            <BtnPrimary btnText="Send Message" />
           </form>
         </div>
       </div>
@@ -86,4 +92,4 @@ function Contact() {
     </div>
   );
 }
-export default Contact
+export default Contact;

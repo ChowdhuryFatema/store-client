@@ -10,13 +10,11 @@
 - Git
 
 #### Clone the repository:
-- git clone https://github.com/ChowdhuryFatema/store-client.git
+- git clone https://github.com/ChowdhuryFatema/store-server.git
 - cd your-repository
 - Install dependencies:
 
-#### For the client side:
-- cd client
-- npm install
+
  
 
 
