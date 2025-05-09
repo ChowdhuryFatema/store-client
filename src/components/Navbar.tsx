@@ -72,7 +72,7 @@ const Navbar = () => {
               <EnvironmentOutlined
                 style={{ fontSize: "16px", color: "white" }}
               />
-              <h2 className="text-white">Bangladesh</h2>
+              <h2 className="text-white !mt-2">Bangladesh</h2>
             </div>
             <div className="flex gap-5 items-center">
               <div className="hidden md:block">

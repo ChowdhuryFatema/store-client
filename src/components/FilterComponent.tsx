@@ -62,8 +62,9 @@ const FilterComponent = ({ onFilterApply, onReset }: TProductFilterProps) => {
 
   return (
     <div className="!space-y-3">
-      <div className="!space-y-2">
-        <label>Price Range</label>
+      <div className="!space-y-2 !mt-3">
+      <label className="text-lg font-semibold">Price Range</label>
+        <hr className="text-gray-300 !my-3" />
         <Slider
           range
           min={0}
@@ -74,10 +75,11 @@ const FilterComponent = ({ onFilterApply, onReset }: TProductFilterProps) => {
       </div>
 
       <div>
-        <label className="!mb-4">Model</label>
+        <label className="text-lg font-semibold">Model</label>
+        <hr className="text-gray-300 !my-3" />
         <Select
           placeholder="Select model"
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginTop: "8px" }}
           value={localFilters.model}
           onChange={(value) => handleChange("model", value)}
           options={modelOption}
@@ -85,19 +87,32 @@ const FilterComponent = ({ onFilterApply, onReset }: TProductFilterProps) => {
       </div>
 
       <div>
-        <label>Brand</label>
+      <label className="text-lg font-semibold">Brand</label>
+        <hr className="text-gray-300 !my-3" />
         <Select
           placeholder="Select brand"
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginTop: "8px" }}
           value={localFilters.brand}
           onChange={(value) => handleChange("brand", value)}
           options={brandOption}
         />
       </div>
-
       <div>
-        <label>Category</label>
-        <ul className="!space-y-2">
+      <label className="text-lg font-semibold">Stock</label>
+      <hr className="text-gray-300 !my-3" />
+        <Checkbox
+          checked={localFilters.inStock === true}
+          onChange={(e) =>
+            handleChange("inStock", e.target.checked ? true : undefined)
+          }
+        >
+          In Stock Only
+        </Checkbox>
+      </div>
+      <div>
+      <label className="text-lg font-semibold">Category</label>
+        <hr className="text-gray-300 !my-3" />
+        <ul className="!space-y-2 !mt-3">
           {Array.from(
             new Set(products?.data?.map((product) => product.category))
           ).map((category) => (
@@ -115,20 +130,10 @@ const FilterComponent = ({ onFilterApply, onReset }: TProductFilterProps) => {
         </ul>
       </div>
 
-      <div>
-        <Checkbox
-          checked={localFilters.inStock === true}
-          onChange={(e) =>
-            handleChange("inStock", e.target.checked ? true : undefined)
-          }
-        >
-          In Stock Only
-        </Checkbox>
-      </div>
       <div className="flex justify-end mt-4">
         <button
           onClick={handleReset}
-          className="border border-gray-400 px-4 py-1 rounded hover:bg-gray-100"
+          className="border border-gray-400 !px-4 !py-1 rounded hover:bg-gray-100 w-full"
         >
           Reset
         </button>
