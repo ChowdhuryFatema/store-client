@@ -9,9 +9,9 @@ import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useCreateOrderMutation } from "../../redux/features/order/order.api";
 import { useEffect } from "react";
 import { toast } from "sonner";
-import LoadingSpinner from "../../components/LoadingSpinner";
 import bikeImg from "./../../assets/images/banner4.jpg";
 import ProductReviewSection from "./ProductReviewSection";
+import ProductDetailsSkeleton from "./ProductDetailsSkeleton";
 
 // Helper function to render stars
 const renderStars = (rating: number) => {
@@ -96,8 +96,6 @@ const ProductDetails = () => {
     if (isError) toast.error(JSON.stringify(error), { id: toastId });
   }, [data?.data, data?.message, error, isError, isLoading, isSuccess]);
 
-  if (dIsLoading) return <LoadingSpinner />;
-
   return (
     <>
       {/* Hero Banner */}
@@ -124,50 +122,55 @@ const ProductDetails = () => {
       </div>
       <div className="bg-white">
         <div className="w-[90%] max-w-[1400px] px-5 !mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center !my-10">
-            <div className="flex justify-center items-center">
-              <img src={product?.image} alt={product?.name} />
-            </div>
-            <div className="!space-y-3 !p-5">
-              <h1 className="text-2xl text-orange-500">{product?.name}</h1>
-              <p>Description: {product?.description}</p>
-
-              {/* Render the rating as stars */}
-              <p>{renderStars(product?.rating)}</p>
-
-              <div className="!space-y-2">
-                <p>Brand: {product?.brand}</p>
-                <p>Price: ${product?.price}</p>
-                <p>Model: {product?.model}</p>
-                <p>In Stock: {product?.quantity}</p>
-                <p>Category: {product?.category}</p>
+          {dIsLoading ? (
+            <ProductDetailsSkeleton />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center !my-10">
+              <div className="flex justify-center items-center">
+                <img src={product?.image} alt={product?.name} />
               </div>
+              <div className="!space-y-3 !p-5">
+                <h1 className="text-2xl text-orange-500">{product?.name}</h1>
+                <p>Description: {product?.description}</p>
 
-              <div className="!pt-2">
-                {product?.quantity <= 0 ? (
-                  <p className="text-red-500">
-                    <ExclamationCircleOutlined
-                      style={{ color: "red", marginRight: 5 }}
-                    />
-                    Product Out of stock
-                  </p>
-                ) : (
-                  <div>
-                    <span className="!mr-3">
-                      <BtnPrimary
-                        onClick={handlePlaceOrder}
-                        btnText="Buy Now"
+                {/* Render the rating as stars */}
+                <p>{renderStars(product?.rating)}</p>
+
+                <div className="!space-y-2">
+                  <p>Brand: {product?.brand}</p>
+                  <p>Price: ${product?.price}</p>
+                  <p>Model: {product?.model}</p>
+                  <p>In Stock: {product?.quantity}</p>
+                  <p>Category: {product?.category}</p>
+                </div>
+
+                <div className="!pt-2">
+                  {product?.quantity <= 0 ? (
+                    <p className="text-red-500">
+                      <ExclamationCircleOutlined
+                        style={{ color: "red", marginRight: 5 }}
                       />
-                    </span>
-                    <BtnSecondary
-                      btnText="Add to cart"
-                      onClick={handleAddToCart}
-                    />
-                  </div>
-                )}
+                      Product Out of stock
+                    </p>
+                  ) : (
+                    <div>
+                      <span className="!mr-3">
+                        <BtnPrimary
+                          onClick={handlePlaceOrder}
+                          btnText="Buy Now"
+                        />
+                      </span>
+                      <BtnSecondary
+                        btnText="Add to cart"
+                        onClick={handleAddToCart}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
+          )}
+
           <ProductReviewSection />
         </div>
       </div>
