@@ -19,6 +19,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import DashboardManage from "../pages/dashboard/DashboardManage";
+import RecentViewedProducts from "../pages/recent/RecentViewedProducts";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: 'order-verify',
                 element: <VerifyOrder />
+            },
+            {
+                path: 'recent',
+                element: <RecentViewedProducts />
             },
             {
                 path: 'about-us',
